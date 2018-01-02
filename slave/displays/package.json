@@ -1,0 +1,25 @@
+{
+  "name": "displays",
+  "version": "0.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "js": "webpack --config webpack.config.js",
+    "css": "postcss assets/src/css/main.css -m -o assets/dist/css/main.css"
+  },
+  "author": "Till Prochaska <mail@tillprochaska.de>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "postcss": "^6.0.15",
+    "postcss-cli": "^4.1.1",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-import": "^11.0.0",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "rss-parser": "^2.11.0"
+  }
+}

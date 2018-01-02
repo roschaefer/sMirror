@@ -1,0 +1,9 @@
+# SYSTEM FILES
+Icon
+.DS_Store
+
+# NPM
+/node_modules
+
+# COMPILED ASSETS
+/assets/dist
