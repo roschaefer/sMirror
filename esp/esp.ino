@@ -7,7 +7,7 @@
  
 // Connect to the WiFi
 
-const char* mqtt_server = "192.168.178.86";
+const char* mqtt_server = "raspberrypi";
  
 WiFiClient espClient;
 PubSubClient client(espClient);
