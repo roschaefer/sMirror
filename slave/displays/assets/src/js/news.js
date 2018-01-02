@@ -1,4 +1,5 @@
 require('../../../node_modules/rss-parser/dist/rss-parser.js');
+import moment from 'moment';
 
 window.onload = () => {
     RSSParser.parseURL('rss.php', (err, parsed) => {
@@ -11,8 +12,8 @@ window.onload = () => {
             let template = `
                 <div class="c-news-display">
                     <div class="c-news-display__logo"></div>
-                    <p class="c-news-display__count">Deine Nachricht ${i + 1} von ${items.length}</p>
                     <div class="c-news-display__content">
+                        <p class="c-news-display__meta">${i + 1} von ${items.length}  •  ${ moment(item.pubDate).lang('de').fromNow() }</p>
                         <h1 class="c-news-display__title">${item.title}</h1>
                         <p class="c-news-display__description">${item.contentSnippet}</p>
                     </div>
