@@ -20,17 +20,23 @@
     position: absolute;
     top: 1.75rem;
     left: 1.75rem;
+}
+
+.c-news-display__content {
+    align-self: center;
+    padding-top: 2rem;
+}
+
+.c-news-display__meta {
+    font-size: .9em;
     text-transform: uppercase;
     font-size: .9em;
     letter-spacing: .1em;
 }
 
-.c-news-display__content {
-    align-self: center;
-}
-
 .c-news-display__title {
-    margin: 2rem 0;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
     font-weight: 300;
     font-size: 2.5rem;
     line-height: 1.2;
