@@ -55,6 +55,7 @@ void setup()
  Serial.begin(9600);
  WiFiManager wifiManager;
  wifiManager.autoConnect("AutoConnectAP"); 
+ // WiFi.disconnect() ;
  client.setServer(mqtt_server, 1883);
  client.setCallback(callback);
  
