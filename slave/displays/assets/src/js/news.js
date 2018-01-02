@@ -11,7 +11,7 @@ window.onload = () => {
             let template = `
                 <div class="c-news-display">
                     <div class="c-news-display__logo"></div>
-                    <p class="c-news-display__count">Nachricht ${i + 1} von ${items.length}</p>
+                    <p class="c-news-display__count">Deine Nachricht ${i + 1} von ${items.length}</p>
                     <div class="c-news-display__content">
                         <h1 class="c-news-display__title">${item.title}</h1>
                         <p class="c-news-display__description">${item.contentSnippet}</p>

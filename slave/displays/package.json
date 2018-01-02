@@ -5,7 +5,8 @@
   "main": "",
   "scripts": {
     "js": "webpack --config webpack.config.js",
-    "css": "postcss assets/src/css/main.css -m -o assets/dist/css/main.css"
+    "css": "postcss assets/src/css/main.css -m -o assets/dist/css/main.css",
+    "start": "npm run js && npm run css"
   },
   "author": "Till Prochaska <mail@tillprochaska.de>",
   "license": "MIT",
