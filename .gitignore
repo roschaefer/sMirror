@@ -111,5 +111,5 @@ typings/
 
 
 
-slave/displays/stocks/config.live.js
+slave/displays/assets/src/js/config.live.json
 
