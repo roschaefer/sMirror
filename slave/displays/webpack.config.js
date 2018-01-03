@@ -5,6 +5,7 @@ module.exports = {
     entry: {
         news: './assets/src/js/news.js',
         twitter: './assets/src/js/twitter.js',
+        tagesschau: './assets/src/js/tagesschau.js'
     },
     output: {
         path: path.join(__dirname, 'assets/dist/js/'), 
