@@ -34,12 +34,6 @@ $response = json_decode($response);
 $tweets = [];
 
 foreach ($response as $tweet) {
-    /*dump($tweet);
-    dump($tweet->text);
-    dump($tweet->created_at);
-    dump($tweet->user->name);
-    dump($tweet->retweet_count);
-    dump($tweet->favorite_count);*/
     $tweets[] = [
         'text' => $tweet->text,
         'created_at' => strtotime($tweet->created_at),
