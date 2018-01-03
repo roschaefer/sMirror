@@ -76,7 +76,18 @@ foreach ($events->getItems() as $event) {
     $startDate = new Carbon($start->format(DATE_ISO8601));
     $location = $event->getLocation();
 
-    if ($endOfDay->gte($startDate) && $now->lte($startDate)) {
+    if (($endOfDay->gte($startDate) && $now->lte($startDate))
+        || $event->getStart()->date == date('Y-m-d')) { // && $now->lte($startDate)
+        /*dump($event);
+        dump($event->getStart()->date);
+        dump($event->getStart()->date == date('Y-m-d'));
+        dump(date('Y-m-d'));*/
+        $recurring = false;
+        if ($event->getStart()->date == date('Y-m-d')) {
+            $start = Carbon::now()->startOfDay();
+            $recurring = true;
+        }
+
         $termine[] = [
             'start' => $start,
             'end' => $end,
@@ -85,6 +96,7 @@ foreach ($events->getItems() as $event) {
             'summary' => $summary,
             'description' => $description,
             'location' => $location,
+            'recurring' => $recurring,
         ];
     }
 }

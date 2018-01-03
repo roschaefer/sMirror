@@ -21,17 +21,29 @@
                     <?php else: ?>
                         <?php foreach (array_slice($termine, 0, 3) as $termin) : ?>
                             <div class="c-calendar-display__event">
-                                <p class="c-calendar-display__date-start"><?= $termin['start']->format('d.m.Y H:i:s') ?>
-                                    <span class="c-calendar-display__date-spacing">-</span>
-                                    <span class="c-calendar-display__date-end"><?= $termin['end']->format('d.m.Y H:i:s') ?> </span>
+                                <p class="c-calendar-display__date-start">
+                                    <?php if (!$termin['recurring']) : ?>
+                                        <?= $termin['start']->format('d.m.Y H:i:s') ?>
+                                        <span class="c-calendar-display__date-spacing">-</span>
+                                        <span class="c-calendar-display__date-end"><?= $termin['end']->format('d.m.Y H:i:s') ?> </span>
+                                    <?php else: ?>
+                                        heute
+                                    <?php endif; ?>
                                 </p>
                                 <p class="c-calendar-display__description"><?= $termin['summary'] ?></p>
-                                <p class="c-calendar-display__location">
-                                    <span class="c-calendar-display__location-icon"></span>
-                                    <?= $termine[0]['location'] ?>
-                                </p>
+                                <?php if ($termin['location']) : ?>
+                                    <p class="c-calendar-display__location">
+                                        <span class="c-calendar-display__location-icon"></span>
+                                        <?= $termin['location'] ?>
+                                    </p>
+                                <?php endif; ?>
                             </div>
                         <?php endforeach; ?>
+                        <?php if (count($termine) > 3) : ?>
+                            <div class="c-calendar-display__more">
+                                Noch weitere <?= count($termine) - 3 ?> Termin(e) für den heutigen Tag vorhanden
+                            </div>
+                        <?php endif; ?>
                     <?php endif; ?>
                 </div>
             </div>
