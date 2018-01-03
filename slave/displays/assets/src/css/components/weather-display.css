@@ -13,7 +13,7 @@
 }
 
 .c-weather-display__radar {
-    max-width: 50%;
+    max-width: 60%;
     flex-grow: 0;
     flex-shrink: 0;
 }
