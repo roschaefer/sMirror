@@ -7,6 +7,7 @@ module.exports = {
         twitter: './assets/src/js/twitter.js',
         tagesschau: './assets/src/js/tagesschau.js',
         weather: './assets/src/js/weather.js',
+        maus: './assets/src/js/maus.js'
     },
     output: {
         path: path.join(__dirname, 'assets/dist/js/'), 
