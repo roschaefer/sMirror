@@ -2,7 +2,7 @@ require('../../../node_modules/rss-parser/dist/rss-parser.js');
 import moment from 'moment';
 
 window.onload = () => {
-    RSSParser.parseURL('rss.php', (err, parsed) => {
+    RSSParser.parseURL('https://spiegel.de/schlagzeilen/tops/index.rss', (err, parsed) => {
         let items = parsed.feed.entries.slice(0, 5);
         let i = 0;
 

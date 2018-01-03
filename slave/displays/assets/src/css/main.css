@@ -4,3 +4,5 @@
 @import "components/news-display.css";
 @import "components/twitter-display.css";
 @import "components/tagesschau-display.css";
+@import "components/weather-display.css";
+@import "components/weather-tile.css";
