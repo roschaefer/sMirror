@@ -7,9 +7,9 @@
  */
 require __DIR__ . '/vendor/autoload.php';
 
-/*use Tracy\Debugger;
+use Tracy\Debugger;
 
-Debugger::enable();*/
+Debugger::enable();
 
 $credentials = parse_ini_file('credentials.ini');
 
@@ -30,7 +30,7 @@ $response = $twitter->setGetfield($getfield)
     ->performRequest();
 
 $response = json_decode($response);
-//dump($response); die();
+dump($response); die();
 $tweets = [];
 
 foreach ($response as $tweet) {

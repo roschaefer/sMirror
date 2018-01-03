@@ -13,7 +13,7 @@ window.onload = () => {
                         <div class="c-twitter-display__logo"></div>
                         <p class="c-twitter-display__count">Tweet ${i + 1} von ${tweets.length}</p>
                         <div class="c-twitter-display__content">
-                            <h1 class="c-twitter-display__author">von ${tweet.user}</h1>
+                            <h1 class="c-twitter-display__author">von ${tweet.user} - ${tweet.created_at}</h1>
                             <p class="c-twitter-display__description">${tweet.text}</p>
                             <div class="c-twitter-display__stats">
                                 <span class="c-twitter-display__retweets"></span> ${tweet.retweet_count} Retweets
