@@ -51,28 +51,33 @@ fetch(url, {
         return `
             <div class="c-route ${index === 0 ? 'c-route--primary' : ''}">
                 <div class="c-route__time">
-                    ${ moment(route.departure.time).format('HH:mm') } bis ${ moment(route.arrival.time).lang('de').format('HH:mm') }
+                    ${ index === 0 ? `<span data-relative-date="${moment(route.departure.time).toISOString()}"></span>  •  ` : ''} Ab ${ moment(route.departure.time).format('HH:mm') } bis ${ moment(route.arrival.time).lang('de').format('HH:mm') } Uhr
                 </div>
                 <div class="c-route__steps">
-                    <span class="c-route__stop">von ${route.departure.stop}</span>
+                    <span class="c-route__step">${route.departure.stop}</span>
 
                     ${route.steps.map(step =>`
                         <span class="c-route__step">${step.name}</span>
-                    `).join(', ')}
+                    `).join('')}
 
-                    <span class="c-route__stop">nach ${route.arrival.stop}</span>
+                    <span class="c-route__step">${route.arrival.stop}</span>
                 </div>
-                <span class="c-route__arrival">
-                    ${ route.arrival.stop }
-                    ${ moment(route.arrival.time).lang('de').format('HH:mm') }
-                </span>
             </div>`;
     });
 
+    console.log(partials);
+
     let $container = document.querySelector('.c-transit-display');
 
-    $container.innerHTML += `<div class="c-transit-display__header">${origin} » ${destination}</div>`;
+    $container.innerHTML += `<div class="c-transit-display__header">${origin} → ${destination}</div>`;
     $container.innerHTML += `<div class="c-transit-display__primary-route">${partials[0]}</div>`;
-    $container.innerHTML += `<div class="c-transit-display__alternatives">${partials.slice(0, partials.length - 2).join('')}</div>`;
+    $container.innerHTML += `<div class="c-transit-display__alternatives">${partials.slice(1, partials.length - 1).join('')}</div>`;
+
+    window.setInterval(function render() {
+        document.querySelectorAll('[data-relative-date]').forEach((element) => {
+            element.innerHTML = moment(element.dataset.relativeDate).lang('de').fromNow();
+        });
+        return updateDate();
+    }(), 1000);
 
 });

@@ -1,0 +1,19 @@
+.c-transit-display {
+
+}
+
+.c-transit-display__header {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.c-transit-display__primary-route {
+    padding: 2rem 0;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    font-size: 1.2rem;
+}
+
+.c-transit-display__alternatives {
+    padding: 2rem 0;
+}
