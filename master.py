@@ -14,7 +14,7 @@ ser=serial.Serial(
 counter=0
 
 delay = 0
-while 1:
+while(True):
     x=ser.readline()
     if x:
         print("Turn on LED")
