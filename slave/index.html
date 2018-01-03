@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title>test Ws mqtt.js</title>
+</head>
+<body>
+<script src="./browserMqtt.js"></script>
+<script>
+	var client = mqtt.connect({host: 'sMirrorMaster'}) // you add a ws:// url here
+  client.subscribe("slave/A")
+
+  client.on("message", function (topic, payload) {
+    alert([topic, payload].join(": "))
+    client.end()
+  })
+
+</script>
+</body>
+</html>
