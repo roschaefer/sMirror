@@ -42,7 +42,7 @@ foreach ($response as $tweet) {
     dump($tweet->favorite_count);*/
     $tweets[] = [
         'text' => $tweet->text,
-        'created_at' => $tweet->created_at,
+        'created_at' => strtotime($tweet->created_at),
         'user' => $tweet->user->name,
         'retweet_count' => $tweet->retweet_count,
         'favorite_count' => $tweet->favorite_count,

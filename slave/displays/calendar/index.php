@@ -1,3 +1,22 @@
+<?php
+require __DIR__ . '/vendor/autoload.php';
+
+$authConfigFile= __DIR__ . '/client_secret.json';
+$redirect_uri = 'http://localhost:8080/sMirror/slave/displays/calendar/index.php';
+$client = new Google_Client();
+$client->setAuthConfigFile($authConfigFile);
+$client->addScope("https://www.googleapis.com/auth/calendar");
+$client->setAccessType("offline");
+$client->setRedirectUri($redirect_uri);
+if (!$_GET['code']) {
+    $auth_url = $client->createAuthUrl();
+    echo('<script>window.location.replace("' . filter_var($auth_url, FILTER_SANITIZE_URL) . '");</script>');
+}
+
+$token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+dump($token); die();
+echo('<script>window.location.replace("'.filter_var($redirect_uri, FILTER_SANITIZE_URL).'");</script>');
+?>
 <html>
     <head>
         <meta charset="utf-8">

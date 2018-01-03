@@ -6,47 +6,64 @@
  * Time: 20:32
  */
 require __DIR__ . '/vendor/autoload.php';
-
-use Tracy\Debugger;
-
-Debugger::enable();
-
-$credentials = parse_ini_file('credentials.ini');
-
-$url = 'https://api.twitter.com/1.1/statuses/home_timeline.json';
-$getfield = '?count=5';
-$requestMethod = 'GET';
-
-$twitter = new TwitterAPIExchange(array(
-        'oauth_access_token' => $credentials['TWITTER_ACCESS_TOKEN'],
-        'oauth_access_token_secret' => $credentials['TWITTER_ACCESS_TOKEN_SECRET'],
-        'consumer_key' => $credentials['TWITTER_CONSUMER_KEY'],
-        'consumer_secret' => $credentials['TWITTER_CONSUMER_SECRET']
-    )
+/*
+$info = array
+(
+    'refresh_token' => 'ya29.Gls3BUTEkOiVf7CupitLCOD1-hJgvRI2p1DP3Fe43aueYiW4jh_UQe3RThev8Wp9mMScHM_obM-94nVH3qLHY81DGHmRTlPrgeXizCG7K5PRMD_GjRgLtLTSXwfh',
+    'grant_type' => 'refresh_token',
+    'client_id' => '634308549501-86calu30k28u38u01m0d62c6tn4smtfe.apps.googleusercontent.com',
+    'client_secret' => 'pUnR9aiZtSqLQnxFs0V31skj'
 );
 
-$response = $twitter->setGetfield($getfield)
-    ->buildOauth($url, $requestMethod)
-    ->performRequest();
+// Get returned CURL request
+$request = $this->make_request('https://accounts.google.com/o/oauth2/token', 'POST', 'normal', $info);
 
-$response = json_decode($response);
-dump($response); die();
-$tweets = [];
+// Push the new token into the api_config
+#$this->api_config['access_token'] = $request->access_token;
 
-foreach ($response as $tweet) {
-    /*dump($tweet);
-    dump($tweet->text);
-    dump($tweet->created_at);
-    dump($tweet->user->name);
-    dump($tweet->retweet_count);
-    dump($tweet->favorite_count);*/
-    $tweets[] = [
-        'text' => $tweet->text,
-        'created_at' => $tweet->created_at,
-        'user' => $tweet->user->name,
-        'retweet_count' => $tweet->retweet_count,
-        'favorite_count' => $tweet->favorite_count,
-    ];
+// Return the token
+dump($request->access_token);
+*/
+
+$refreshToken = 'ya29.Gls3BUTEkOiVf7CupitLCOD1-hJgvRI2p1DP3Fe43aueYiW4jh_UQe3RThev8Wp9mMScHM_obM-94nVH3qLHY81DGHmRTlPrgeXizCG7K5PRMD_GjRgLtLTSXwfh';
+
+$client = new Google_Client();
+
+$client->setApplicationName("My Application");
+$client->setAccessType('offline');
+$client->setClientId('634308549501-86calu30k28u38u01m0d62c6tn4smtfe.apps.googleusercontent.com');
+$client->setClientSecret('pUnR9aiZtSqLQnxFs0V31skj');
+$client->setRedirectUri('http://localhost:8080/sMirror/slave/displays/calendar/api.php');
+$client->addScope("https://www.googleapis.com/auth/calendar.readonly");
+
+$client->refreshToken($refreshToken);
+$accessToken = $client->getAccessToken();
+
+$service = new Google_Service_Calendar($client);
+$optParams = array(
+
+);
+#dump($service->calendarList->listCalendarList($optParams));
+
+$today = new DateTime("today");
+$optParams = array(
+    'maxResults' => 300,
+    'timeMin' => $today->format("c"),
+);
+
+$events = $service->events->listEvents('vicari@posteo.de', $optParams);
+
+foreach ($events->getItems() as $event) {
+    $start = new DateTime($event->start->dateTime);
+    $end = new DateTime($event->end->dateTime);
+    $dauer = date_diff($end, $start);
+    $minuten = $dauer->h*60+$dauer->i;
+    $summary = $event->getSummary();
+    $description = $event->getDescription();
+    dump($start);
+    dump($end);
+    dump($dauer);
+    dump($minuten);
+    dump($summary);
+    dump($description);
 }
-
-die(json_encode(['tweets' => $tweets]));

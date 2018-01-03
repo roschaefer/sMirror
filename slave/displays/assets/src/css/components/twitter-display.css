@@ -35,6 +35,10 @@
     line-height: 1.2;
 }
 
+.c-twitter-display__date {
+    margin-left: 2rem;
+}
+
 .c-twitter-display__description {
     font-size: 1.5rem;
     line-height: 1.7;
