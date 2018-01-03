@@ -5,11 +5,14 @@ module.exports = {
     entry: {
         news: './assets/src/js/news.js',
         twitter: './assets/src/js/twitter.js',
+        tagesschau: './assets/src/js/tagesschau.js',
+        weather: './assets/src/js/weather.js',
     },
     output: {
         path: path.join(__dirname, 'assets/dist/js/'), 
         filename: '[name].js',
     },
+    devtool: 'source-map',
     module: {
         rules: [
             {
