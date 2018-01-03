@@ -41,7 +41,17 @@
                         <?php endforeach; ?>
                         <?php if (count($termine) > 3) : ?>
                             <div class="c-calendar-display__more">
-                                Noch weitere <?= count($termine) - 3 ?> Termin(e) für den heutigen Tag vorhanden
+                                Noch weitere <?= count($termine) - 3 ?> Termin(e) für den heutigen Tag vorhanden: <br>
+                                <?php foreach (array_slice($termine, 3, count($termine) - 3) as $termin) : ?>
+                                    <?php
+                                        if (strlen($termin['summary']) > 30) {
+                                            $weitereTermine .= substr($termin['summary'], 0, 30) . '..., ';
+                                        } else {
+                                            $weitereTermine .= substr($termin['summary'], 0, 30) . ', ';
+                                        }
+                                    ?>
+                                <?php endforeach; ?>
+                                <?= substr($weitereTermine, 0, -2) ?>
                             </div>
                         <?php endif; ?>
                     <?php endif; ?>

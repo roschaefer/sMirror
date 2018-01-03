@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49cfb121-fc12-40bb-a8c0-16d6eee27a03" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/master.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/slave/displays/assets/src/css/components/maus-display.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/slave/displays/assets/src/css/components/route.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/slave/displays/assets/src/css/components/transit-display.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/slave/displays/assets/src/js/maus.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/slave/displays/assets/src/js/transit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/slave/displays/maus/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/slave/displays/maus/local-feed.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/slave/displays/transit/index.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/publish.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/esp/esp.ino" afterPath="$PROJECT_DIR$/esp/esp.ino" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/slave/displays/assets/src/css/components/calendar-display.css" afterPath="$PROJECT_DIR$/slave/displays/assets/src/css/components/calendar-display.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/slave/displays/assets/src/css/components/weather-display.css" afterPath="$PROJECT_DIR$/slave/displays/assets/src/css/components/weather-display.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/slave/displays/assets/src/css/main.css" afterPath="$PROJECT_DIR$/slave/displays/assets/src/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/slave/displays/calendar/api.php" afterPath="$PROJECT_DIR$/slave/displays/calendar/api.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/slave/displays/calendar/index.php" afterPath="$PROJECT_DIR$/slave/displays/calendar/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/slave/displays/tagesschau100sek/index.html" afterPath="$PROJECT_DIR$/slave/displays/tagesschau100sek/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/slave/displays/webpack.config.js" afterPath="$PROJECT_DIR$/slave/displays/webpack.config.js" />
     </list>
     <ignored path="sMirror.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,10 +34,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="calendar-display.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="calendar-display.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/slave/displays/assets/src/css/components/calendar-display.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="822">
+            <state relative-caret-position="1290">
               <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
               <folding>
                 <element signature="e#237#1404#2" expanded="true" />
@@ -88,7 +66,7 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/slave/displays/calendar/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
+            <state relative-caret-position="2028">
               <caret line="84" column="27" selection-start-line="84" selection-start-column="27" selection-end-line="84" selection-end-column="27" />
               <folding>
                 <element signature="e#134#152#0#PHP" expanded="true" />
@@ -97,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/slave/displays/calendar/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
-              <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="64" />
+            <state relative-caret-position="727">
+              <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -135,8 +113,8 @@
         <option value="$PROJECT_DIR$/slave/displays/twitter/api.php" />
         <option value="$PROJECT_DIR$/slave/displays/assets/src/css/main.css" />
         <option value="$PROJECT_DIR$/slave/displays/calendar/api.php" />
-        <option value="$PROJECT_DIR$/slave/displays/calendar/index.php" />
         <option value="$PROJECT_DIR$/slave/displays/assets/src/css/components/calendar-display.css" />
+        <option value="$PROJECT_DIR$/slave/displays/calendar/index.php" />
       </list>
     </option>
   </component>
@@ -478,15 +456,15 @@
       <option name="presentableId" value="Default" />
       <updated>1514918249742</updated>
       <workItem from="1514918251159" duration="9974000" />
-      <workItem from="1514977118995" duration="27174000" />
+      <workItem from="1514977118995" duration="28748000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37148000" />
+    <option name="totallyTimeSpent" value="38722000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -732,9 +710,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/slave/displays/assets/src/css/components/calendar-display.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1290">
+          <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
+          <folding>
+            <element signature="e#237#1404#2" expanded="true" />
+            <element signature="e#2326#3001#2" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/slave/displays/calendar/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
+        <state relative-caret-position="2028">
           <caret line="84" column="27" selection-start-line="84" selection-start-column="27" selection-end-line="84" selection-end-column="27" />
           <folding>
             <element signature="e#134#152#0#PHP" expanded="true" />
@@ -744,20 +733,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/slave/displays/calendar/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="64" />
+        <state relative-caret-position="727">
+          <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/slave/displays/assets/src/css/components/calendar-display.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="822">
-          <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
-          <folding>
-            <element signature="e#237#1404#2" expanded="true" />
-            <element signature="e#2326#3001#2" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
