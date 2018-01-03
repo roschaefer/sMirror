@@ -1,0 +1,32 @@
+.c-weather-tile {
+    text-align: center;
+}
+
+.c-weather-tile__time {
+    font-size: .9em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.c-weather-tile__icon {
+    width: 32px;
+}
+
+.c-weather-tile__temp {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.c-weather-tile--current .c-weather-tile__time {
+    display: none;
+}
+
+.c-weather-tile--current .c-weather-tile__icon {
+    width: 96px;
+}
+
+.c-weather-tile--current .c-weather-tile__temp {
+    font-size: 3rem;
+}

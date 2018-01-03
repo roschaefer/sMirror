@@ -1,0 +1,32 @@
+.c-weather-display {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.c-weather-display__forecast {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+}
+
+.c-weather-display__radar {
+    max-width: 50%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.c-weather-display__radar img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.c-weather-display__tile {
+    width: 50%;
+}
+
+.c-weather-display__tile:first-child {
+    width: 100%;
+    margin-bottom: 2rem;
+}
