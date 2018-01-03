@@ -7,7 +7,7 @@ module.exports = {
         twitter: './assets/src/js/twitter.js',
         tagesschau: './assets/src/js/tagesschau.js',
         weather: './assets/src/js/weather.js',
-        maus: './assets/src/js/maus.js'
+        maus: './assets/src/js/maus.js',
         transit: './assets/src/js/transit.js',
     },
     output: {
