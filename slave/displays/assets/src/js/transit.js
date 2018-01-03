@@ -7,7 +7,6 @@ let key = 'AIzaSyCgnhgSpNu8XFGDET1mBB8vIwxHeyPwUQ4';
 let base = 'https://maps.googleapis.com/maps/api/directions/json';
 let url = `${base}?origin=${origin}&destination=${destination}&mode=transit&alternatives=true&key=${key}`;
 
-window.setInterval(function displayTransit() {
     fetch(url, {
         method: 'get',
         mode: 'cors',
@@ -68,22 +67,16 @@ window.setInterval(function displayTransit() {
                 </div>`;
         });
 
-        console.log(partials);
-
         let $container = document.querySelector('.c-transit-display');
 
-        $container.innerHTML = `<div class="c-transit-display__header">${origin} → ${destination}</div>`;
-        $container.innerHTML += `<div class="c-transit-display__primary-route">${partials[0]}</div>`;
+        $container.innerHTML = `<div class="c-transit-display__primary-route">${partials[0]}</div>`;
         $container.innerHTML += `<div class="c-transit-display__alternatives">${partials.slice(1, partials.length - 1).join('')}</div>`;
 
         window.setInterval(function updateTime() {
             document.querySelectorAll('[data-relative-date]').forEach((element) => {
                 element.innerHTML = moment(element.dataset.relativeDate).lang('de').fromNow();
             });
-            return updateDate();
+            return updateTime();
         }(), 1000);
 
     });
-
-    return displayTransit();
-}(), 60000);
