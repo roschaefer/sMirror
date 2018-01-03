@@ -51,7 +51,9 @@ fetch(url, {
         return `
             <div class="c-route ${index === 0 ? 'c-route--primary' : ''}">
                 <div class="c-route__time">
-                    ${ index === 0 ? `<span data-relative-date="${moment(route.departure.time).toISOString()}"></span>  •  ` : ''} Ab ${ moment(route.departure.time).format('HH:mm') } bis ${ moment(route.arrival.time).lang('de').format('HH:mm') } Uhr
+                    ${ index === 0 ? `<span data-relative-date="${moment(route.departure.time).toISOString()}"></span>  • ` : ''}
+                    Ab ${ moment(route.departure.time).format('HH:mm') }
+                    bis ${ moment(route.arrival.time).lang('de').format('HH:mm') } Uhr
                 </div>
                 <div class="c-route__steps">
                     <span class="c-route__step">${route.departure.stop}</span>
