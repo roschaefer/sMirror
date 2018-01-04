@@ -2,7 +2,6 @@
     display: flex;
     width: 100%;
     height: 100%;
-    padding: ;
 }
 
 .c-sprueche-display__logo {
@@ -35,10 +34,13 @@
     font-weight: 300;
     font-size: 1rem;
     line-height: 1.2;
+    text-align: center;
 }
 
 .c-sprueche-display__sprueche {
     font-size: 2rem;
     line-height: 2.5rem;
     font-style: italic;
+    font-weight: 300;
+    text-align: center;
 }
