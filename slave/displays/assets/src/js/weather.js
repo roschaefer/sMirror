@@ -1,15 +1,30 @@
+import keys from './config/keys.js';
 import moment from 'moment';
 import timespans from './weather/timespans.js';
 import icons from './weather/icons.js';
 
+// api configuration
+let base = 'https://api.openweathermap.org/data/2.5/';
+let location = 'Lüneburg';
+let key = keys.weather;
+
+let current  = `${base}/weather?q=${location}&APPID=${key}`;
+let forecast = `${base}/forecast?q=${location}&APPID=${key}`;
+
 window.onload = () => {
-    let base = 'https://api.openweathermap.org/data/2.5/';
-    let location = 'Lüneburg';
-    let key = keys.weather;
+    // load radar imagery asynchronously
+    let radar = new Image();
+    let url   = 'https://www.dwd.de/DWD/wetter/radar/radfilm_nib_akt.gif';
+    let $container = document.querySelector('.c-weather-display__radar');
 
-    let current  = `${base}/weather?q=${location}&APPID=${key}`;
-    let forecast = `${base}/forecast?q=${location}&APPID=${key}`;
+    radar.onload = () => {
+        $container.innerHTML = '';
+        $container.appendChild(radar);
+    };
 
+    radar.src = url;
+
+    // load and render weather data
     let weatherData = [];
 
     Promise.all([
