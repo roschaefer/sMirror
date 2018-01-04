@@ -84,6 +84,8 @@ let update = () => {
 
 let showEntry = (currentData) => {
     console.log('showEntry', currentData);
+
+
     // show something
     let template = `
             <div class="c-stock__symbol">${currentData.name}: </div>
@@ -93,8 +95,6 @@ let showEntry = (currentData) => {
             
         `;
     document.querySelector('.c-viewport').innerHTML = template;
-
-
     generateChart(currentData.series, '#chart-' + currentData.name);
 };
 

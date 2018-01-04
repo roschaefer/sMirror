@@ -22,3 +22,16 @@
     display: inline-block;
     font-size: 36px;
 }
+
+.c-stock__symbol{
+    text-transform: uppercase;
+}
+
+.c-stocks-display{
+    -webkit-transition: opacity 2s ease-in;
+    -moz-transition: opacity 2s ease-in;
+    -ms-transition: opacity 2s ease-in;
+    -o-transition: opacity 2s ease-in;
+    transition: opacity 2s ease-in;
+
+}
