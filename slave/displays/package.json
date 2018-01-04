@@ -6,7 +6,8 @@
   "scripts": {
     "js": "webpack --config webpack.config.js",
     "css": "postcss assets/src/css/main.css -m -o assets/dist/css/main.css",
-    "start": "npm run js && npm run css"
+    "build": "npm run js && npm run css",
+    "start": "npm-watch"
   },
   "author": "Till Prochaska <mail@tillprochaska.de>",
   "license": "MIT",
@@ -14,6 +15,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
+    "npm-watch": "^0.3.0",
     "postcss": "^6.0.15",
     "postcss-cli": "^4.1.1",
     "postcss-cssnext": "^3.0.2",
@@ -23,5 +25,14 @@
   "dependencies": {
     "moment": "^2.20.1",
     "rss-parser": "^2.11.0"
+  },
+  "watch": {
+    "js": "assets/src/js/**/*.js",
+    "css": {
+      "patterns": [
+        "assets/src/css/**/*.css"
+      ],
+      "extensions": "css"
+    }
   }
 }
