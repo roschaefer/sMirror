@@ -7,15 +7,13 @@
 
 .c-weather-display__forecast {
     display: flex;
-    flex-grow: 1;
+    width: 40%;
     flex-wrap: wrap;
     margin-right: 2rem;
 }
 
 .c-weather-display__radar {
-    max-width: 60%;
-    flex-grow: 0;
-    flex-shrink: 0;
+    width: 60%;
 }
 
 .c-weather-display__radar img {
