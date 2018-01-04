@@ -2,6 +2,7 @@
 
 @import "components/viewport.css";
 @import "components/loading-indicator.css";
+@import "components/progress-bar.css";
 @import "components/news-display.css";
 @import "components/twitter-display.css";
 @import "components/tagesschau-display.css";
@@ -9,5 +10,9 @@
 @import "components/weather-tile.css";
 @import "components/calendar-display.css";
 @import "components/maus-display.css";
+@import "components/stocks-display.css";
 @import "components/transit-display.css";
 @import "components/route.css";
+@import "components/countdown-display.css";
+@import "components/sprueche-display.css";
+
