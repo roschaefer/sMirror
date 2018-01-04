@@ -8,29 +8,13 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use Carbon\Carbon;
-use Tracy\Debugger;
+/*use Tracy\Debugger;
 
-Debugger::enable();
+Debugger::enable();*/
 
 $calendarId = 'vicari@posteo.de';
-/*
-$info = array
-(
-    'refresh_token' => 'ya29.Gls3BUTEkOiVf7CupitLCOD1-hJgvRI2p1DP3Fe43aueYiW4jh_UQe3RThev8Wp9mMScHM_obM-94nVH3qLHY81DGHmRTlPrgeXizCG7K5PRMD_GjRgLtLTSXwfh',
-    'grant_type' => 'refresh_token',
-    'client_id' => '634308549501-86calu30k28u38u01m0d62c6tn4smtfe.apps.googleusercontent.com',
-    'client_secret' => 'pUnR9aiZtSqLQnxFs0V31skj'
-);
+$hoursBeforeEvent = 1; // Leave house n hours before event (for countdown)
 
-// Get returned CURL request
-$request = $this->make_request('https://accounts.google.com/o/oauth2/token', 'POST', 'normal', $info);
-
-// Push the new token into the api_config
-#$this->api_config['access_token'] = $request->access_token;
-
-// Return the token
-dump($request->access_token);
-*/
 $credentials = parse_ini_file('credentials.ini');
 
 $client = new Google_Client();
@@ -78,10 +62,6 @@ foreach ($events->getItems() as $event) {
 
     if (($endOfDay->gte($startDate) && $now->lte($startDate))
         || $event->getStart()->date == date('Y-m-d')) { // && $now->lte($startDate)
-        /*dump($event);
-        dump($event->getStart()->date);
-        dump($event->getStart()->date == date('Y-m-d'));
-        dump(date('Y-m-d'));*/
         $recurring = false;
         if ($event->getStart()->date == date('Y-m-d')) {
             $start = Carbon::now()->startOfDay();
@@ -104,8 +84,11 @@ foreach ($events->getItems() as $event) {
 $ersterTermin = null;
 if (count($termine) > 0) {
     foreach ($termine as $termin) {
-        if (!$termin['recurring']) {
+        $date = new Carbon($termin['start']->format(DATE_ISO8601));
+        if (!$termin['recurring'] && $date->subHours($hoursBeforeEvent)->gt(Carbon::now())) {
+            //dump($date->subHours($hoursBeforeEvent)->gt(Carbon::now()));
             $ersterTermin = $termin;
+            $ersterTermin['start'] = $date->format(DATE_ISO8601);
             break;
         }
     }
@@ -129,5 +112,5 @@ function getAccessAndRefreshToken()
     }
 
     $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-    dump($token); die();
+    var_dump($token); die();
 }

@@ -1,8 +1,15 @@
 import moment from 'moment';
 
 window.onload = () => {
+    fetch('api.php').then((response) => {
+        return response.json();
+    }).then((data) => {
+        //console.log(Date.parse(data['start']));
+
     let i = 0;
-    var countDownDate = new Date("Jan 4, 2018 12:37:25").getTime();
+    if (data) {
+        var countDownDate = Date.parse(data['start']); //new Date("Jan 4, 2018 13:37:25").getTime();
+    }
 
     let firstNow = new Date().getTime();
     let firstDistance = countDownDate - firstNow;
@@ -22,10 +29,16 @@ window.onload = () => {
             let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+            if (!data) {
+                days = 0;
+                hours = 0;
+                minutes = 0;
+                seconds = 0;
+            }
 
             if (progressBar !== null) {
-                console.log('test');
-                console.log(progressBar.style);
+                //console.log('test');
+                //console.log(progressBar.style);
                 //progressBar.style.cssText = 'width: 200px;';
                 progressBar.setAttribute('style', 'width: 30%;');
                 // (100 - (distance / firstDistance * 100))
@@ -51,5 +64,6 @@ window.onload = () => {
             document.querySelector('.c-viewport').innerHTML = template;
 
         return render;
-    }(), 10000);
+    }(), 1000);
+    });
 };
