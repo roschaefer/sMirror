@@ -101,6 +101,16 @@ foreach ($events->getItems() as $event) {
     }
 }
 
+$ersterTermin = null;
+if (count($termine) > 0) {
+    foreach ($termine as $termin) {
+        if (!$termin['recurring']) {
+            $ersterTermin = $termin;
+            break;
+        }
+    }
+}
+
 // Erst auf https://myaccount.google.com/u/0/permissions die permissions für die App (sMirror) abschalten
 // Dann getAccessAndRefreshToken() direkt nach dem einbinden von autoload.php ausführen (einmalig) und Zugriff gewähren
 // und Refresh Token in Rückgabe nach credentials.ini speichern
