@@ -1,3 +1,24 @@
-.c-stocks-display {
+.line {
+    fill: none;
+    stroke: white;
+    stroke-width: 2px;
+}
 
+.domain{
+    stroke: white;
+}
+
+.tick > line{
+    stroke: white;
+}
+
+.tick > text{
+    fill: white
+}
+
+.c-stock__symbol,
+.c-stock__value,
+.c-stock__currency{
+    display: inline-block;
+    font-size: 36px;
 }
