@@ -13,7 +13,7 @@ use Carbon\Carbon;
 Debugger::enable();*/
 
 $calendarId = 'vicari@posteo.de';
-$hoursBeforeEvent = 1; // Leave house n hours before event (for countdown)
+$hoursBeforeEvent = 0; // Leave house n hours before event (for countdown)
 
 $credentials = parse_ini_file('credentials.ini');
 

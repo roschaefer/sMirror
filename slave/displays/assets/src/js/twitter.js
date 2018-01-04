@@ -1,3 +1,4 @@
+import ProgressBar from './lib/progress-bar.js';
 import moment from 'moment';
 
 window.onload = () => {
@@ -23,9 +24,13 @@ window.onload = () => {
                                 <span class="c-twitter-display__favorites"></span> ${tweet.favorite_count} Favorites
                             </div>
                         </div>
+                        <div class="c-twitter-display__progress-bar">
+                            <div class="c-progress-bar"></div>
+                        </div>
                     </div>`;
 
             document.querySelector('.c-viewport').innerHTML = template;
+            new ProgressBar(document.querySelector('.c-progress-bar'), 20000);
 
             if(i === tweets.length - 1) {
                 i = 0;
