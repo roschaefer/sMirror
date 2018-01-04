@@ -1,11 +1,11 @@
 import moment from 'moment';
-import timespans from './timespans.js';
-import icons from './icons.js';
+import timespans from './weather/timespans.js';
+import icons from './weather/icons.js';
 
 window.onload = () => {
     let base = 'https://api.openweathermap.org/data/2.5/';
     let location = 'Lüneburg';
-    let key = '5c9441f8aa94d6c4a3c82de0cca01917';
+    let key = keys.weather;
 
     let current  = `${base}/weather?q=${location}&APPID=${key}`;
     let forecast = `${base}/forecast?q=${location}&APPID=${key}`;
