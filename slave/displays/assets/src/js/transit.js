@@ -5,7 +5,7 @@ let origin = 'Hinter dem Brunnen 6, Lüneburg';
 let destination = 'Hongkongstr. 1, Hamburg';
 
 let key = keys.transit;
-let base = 'https://maps.googleapis.com/maps/api/directions/json';
+let base = 'http://localhost:8080/https://maps.googleapis.com/maps/api/directions/json';
 let url = `${base}?origin=${origin}&destination=${destination}&mode=transit&alternatives=true&key=${key}`;
 
     fetch(url, {

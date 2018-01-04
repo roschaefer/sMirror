@@ -10,7 +10,7 @@ let entryOfTheDay = (entries) => {
 
 window.onload = () => {
     // real feed url - uncomment line below
-    let url = 'http://www1.wdr.de/mediathek/video/podcast/channel-sendung-mit-der-maus-100.podcast';
+    let url = 'http://localhost:8080/http://www1.wdr.de/mediathek/video/podcast/channel-sendung-mit-der-maus-100.podcast';
     // local test feed url
     //let url = './local-feed.xml';
 
