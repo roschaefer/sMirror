@@ -1,6 +1,7 @@
 @import "shared/page.css";
 
 @import "components/viewport.css";
+@import "components/loading-indicator.css";
 @import "components/news-display.css";
 @import "components/twitter-display.css";
 @import "components/tagesschau-display.css";

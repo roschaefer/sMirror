@@ -1,9 +1,10 @@
 import moment from 'moment';
+import keys from './config/keys.js';
 
 let origin = 'Hinter dem Brunnen 6, Lüneburg';
 let destination = 'Hongkongstr. 1, Hamburg';
 
-let key = 'AIzaSyCgnhgSpNu8XFGDET1mBB8vIwxHeyPwUQ4';
+let key = keys.transit;
 let base = 'https://maps.googleapis.com/maps/api/directions/json';
 let url = `${base}?origin=${origin}&destination=${destination}&mode=transit&alternatives=true&key=${key}`;
 

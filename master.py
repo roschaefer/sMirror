@@ -18,13 +18,13 @@ while(True):
     x=ser.readline()
     if x:
         print "Turn on LED"
-        publish.single("ledStatus", "1", hostname="sMirrorMaster")
+        publish.single("slave", "http://localhost:8000/displays/weather/", hostname="sMirrorMaster", port=9001, transport="websockets")
         delay = 0
     else:
         delay = delay + 1
     if (delay > 5):
         print "Turn off LED"
-        publish.single("ledStatus", "0", hostname="sMirrorMaster")
+        publish.single("slave", "http://localhost:8000/displays/transit/", hostname="sMirrorMaster", port=9001, transport="websockets")
 
 
 
