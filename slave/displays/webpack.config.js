@@ -11,6 +11,7 @@ module.exports = {
         stocks: './assets/src/js/stocks.js',
         transit: './assets/src/js/transit.js',
         countdown: './assets/src/js/countdown.js',
+        video: './assets/src/js/video.js'
     },
     output: {
         path: path.join(__dirname, 'assets/dist/js/'), 
