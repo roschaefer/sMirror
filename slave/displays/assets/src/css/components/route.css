@@ -1,0 +1,27 @@
+.c-route + .c-route {
+    margin-top: 1.5rem;
+}
+
+.c-route__time {
+    font-size: .9rem;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-bottom: .5rem;
+}
+
+.c-route__steps {
+    margin: 0 -.75rem;
+}
+
+.c-route__step {
+    display: inline-block;
+    padding: 0 .75rem;
+}
+
+.c-route__step + .c-route__step {
+    padding-left: calc(.75rem + 16px);
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDE2IDE2Ij48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLCAwKSI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTUuMTA4LDE2LjQxTDMuNTksMTUuMTA4TDkuNjgzLDhMMy41OSwwLjg5Mkw1LjEwOC0wLjQxbDYuNjUxLDcuNzZjMC4zMjEsMC4zNzQsMC4zMjEsMC45MjcsMCwxLjMwMUw1LjEwOCwxNi40MXoiPjwvcGF0aD48L2c+PC9zdmc+);
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: auto 16px;
+}

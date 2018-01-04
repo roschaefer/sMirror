@@ -1,0 +1,22 @@
+{
+  "name": "smirror",
+  "version": "1.0.0",
+  "description": "",
+  "main": "client.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roschaefer/sMirror.git"
+  },
+  "author": "Robert Schaefer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roschaefer/sMirror/issues"
+  },
+  "homepage": "https://github.com/roschaefer/sMirror#readme",
+  "dependencies": {
+    "mqtt": "^2.15.0"
+  }
+}

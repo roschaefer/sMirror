@@ -2,6 +2,7 @@
     "require": {
         "j7mbo/twitter-api-php": "^1.0",
         "tracy/tracy": "^2.4",
-        "google/apiclient": "^2.0"
+        "google/apiclient": "^2.0",
+        "nesbot/carbon": "^1.22"
     }
 }

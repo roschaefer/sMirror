@@ -1,0 +1,17 @@
+.c-transit-display {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.c-transit-display__header {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.c-transit-display__primary-route {
+    display: flex;
+    flex-grow: 1;
+    font-size: 1.5rem;
+}

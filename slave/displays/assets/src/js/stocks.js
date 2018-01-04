@@ -1,78 +1,102 @@
-const CONFIG = '../assets/src/js/config.live.json';
+import keys from './config/keys.js';
 
+// list of all stocks to be retrieved
 const SYMBOLS = [
     {name: 'DAX', symbol: '%5EGDAXI', currency: '€'},
-    {name: 'Bitcoin-Euro', symbol: 'BTC-EUR', currency:'€'}
+    {name: 'Bitcoin-Euro', symbol: 'BTC-EUR', currency: '€'},
+    {name: 'Microsoft', symbol: 'MSFT', currency: '$'}
 ];
+
+const UPDATE_DELAY = 3 * 1000; // 20 sekunden
+
 const TIMESPAN = 'TIME_SERIES_DAILY';
 
+let currentIndex = 0;
 
-let currentSymbol = SYMBOLS[1];
-const URL = 'https://www.alphavantage.co/query?function=' + TIMESPAN + '&symbol=' + currentSymbol.symbol + '&interval=60min&apikey=';
-
-// TODO
-// draw chart
-// datafield depending on TIMESPAN
-// bulk retrieval of stock data
+let urls = [];
+SYMBOLS.forEach((s) => {
+    urls.push('https://www.alphavantage.co/query?function=' + TIMESPAN + '&symbol=' + s.symbol + '&interval=60min&apikey=' + keys.stocks);
+});
 
 let data = [];
-const DATA_TEMPLATE = {
-    series: [],
-    startTime: null,
-    endTime: null,
-    symbol: null
-};
+let promises = [];
 
-fetch(CONFIG)
-    .then(response => response.json())
-    .then(config => config.alphavantage.apikey)
-    .then(key => fetch(URL + key))
-    .then(response => response.json())
-    .then((response) => {
-        console.log(response);
-        console.log(response['Time Series (Daily)'])
+SYMBOLS.forEach(s => {
+    let url = 'https://www.alphavantage.co/query?function=' + TIMESPAN + '&symbol=' + s.symbol + '&interval=60min&apikey=' + keys.stocks;
 
-        // new data object for this dataset
-        let currentData = Object.assign({}, DATA_TEMPLATE);
+    promises.push(fetch(url)
+        .then(response => response.json())
+        .then(response => {
+            console.log(response['Time Series (Daily)']);
 
-        // retrieve all entries from key: '4. close'
-        let responseData = response['Time Series (Daily)'];
-        Object.entries(responseData).forEach(([key, value]) => {
-            currentData.series.push({date: key, value: Number(value['4. close']).toFixed(2)});
-        });
+            // new data object for this dataset
+            let currentData = {
+                series: [],
+                startTime: null,
+                endTime: null,
+                symbol: null,
+                name: null,
+                currency: null
+            };
 
-        // extract start & end of series
-        let dates = Object.keys(responseData);
-        currentData.startTime = dates[dates.length - 1];
-        currentData.endTime = dates[0];
+            // retrieve all entries from key: '4. close'
+            let responseData = response['Time Series (Daily)'];
+            Object.entries(responseData).forEach(([key, value]) => {
+                currentData.series.push({date: key, value: Number(value['4. close']).toFixed(2)});
+            });
 
-        // reverse order to get newest entry at the end
-        currentData.series = currentData.series.reverse();
+            // extract start & end of series
+            let dates = Object.keys(responseData);
+            currentData.startTime = dates[dates.length - 1];
+            currentData.endTime = dates[0];
 
-        // set symbol for this dataset
-        currentData.symbol = currentSymbol.symbol;
-        // add to overall data
-        data.push(currentData);
+            // reverse order to get newest entry at the end
+            currentData.series = currentData.series.reverse();
 
-        // show something
-        let template = `
-            <div class="c-stock__symbol">${currentSymbol.name}: </div>
-            <div class="c-stock__value"> ${(currentData.series[currentData.series.length - 1].value)}</div>
-            <div class="c-stock__currency"> ${currentSymbol.currency}</div>
-            <div class="c-stock__chart" id="chart-${currentSymbol.name}"></div>
-            
-        `;
-        document.querySelector('.c-viewport').innerHTML = template;
+            // set symbol for this dataset
+            currentData.symbol = s.symbol;
+            currentData.name = s.name;
+            currentData.currency = s.currency;
+            // add to overall data
+            data.push(currentData);
+        }));
+});
 
 
-        generateChart(data[0].series, '#chart-' + currentSymbol.name);
-    })
+// just used as timer for all returning promnises
+Promise.all(promises)
     .then(() => {
-        console.log(data);
+    console.log(data);
+        update();
     })
     .catch((err) => {
         console.error(err);
     });
+
+let update = () => {
+    showEntry(data[currentIndex]);
+    currentIndex++;
+    if(currentIndex > data.length - 1){
+        currentIndex = 0;
+    }
+    setTimeout(update, UPDATE_DELAY)
+};
+
+let showEntry = (currentData) => {
+    console.log('showEntry', currentData);
+    // show something
+    let template = `
+            <div class="c-stock__symbol">${currentData.name}: </div>
+            <div class="c-stock__value"> ${(currentData.series[currentData.series.length - 1].value)}</div>
+            <div class="c-stock__currency"> ${currentData.currency}</div>
+            <div class="c-stock__chart" id="chart-${currentData.name}"></div>
+            
+        `;
+    document.querySelector('.c-viewport').innerHTML = template;
+
+
+    generateChart(currentData.series, '#chart-' + currentData.name);
+};
 
 
 let generateChart = (data, selector) => {
@@ -91,7 +115,7 @@ let generateChart = (data, selector) => {
     // define the line
     let valueline = d3.line()
         .x(function (d) {
-            return x(d.date);
+            return x(d.dateParsed);
         })
         .y(function (d) {
             return y(d.value);
@@ -110,13 +134,13 @@ let generateChart = (data, selector) => {
 
     // format the data
     data.forEach(function (d) {
-        d.date = parseTime(d.date);
+        d.dateParsed = parseTime(d.date);
         d.value = +d.value;
     });
 
     // Scale the range of the data
     x.domain(d3.extent(data, function (d) {
-        return d.date;
+        return d.dateParsed;
     }));
     y.domain([0, d3.max(data, function (d) {
         return d.value;
