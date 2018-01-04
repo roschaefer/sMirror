@@ -1,0 +1,10 @@
+.c-countdown {
+    padding: 1.5rem;
+    max-width: 400px;
+}
+
+.c-countdown__timer {
+    font-size: 6rem;
+    font-weight: 300;
+    margin-left: -.05em;
+}
