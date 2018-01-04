@@ -1,5 +1,7 @@
 import keys from './config/keys.js';
 
+// needs an api key from alphavantage.co -> https://www.alphavantage.co/support/#api-key
+
 // list of all stocks to be retrieved
 const SYMBOLS = [
     {name: 'DAX', symbol: '%5EGDAXI', currency: '€'},
