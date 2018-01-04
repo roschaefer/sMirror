@@ -29,7 +29,7 @@ SYMBOLS.forEach(s => {
     promises.push(fetch(url)
         .then(response => response.json())
         .then(response => {
-            console.log(response['Time Series (Daily)']);
+           // console.log(response['Time Series (Daily)']);
 
             // new data object for this dataset
             let currentData = {
@@ -68,7 +68,6 @@ SYMBOLS.forEach(s => {
 // just used as timer for all returning promnises
 Promise.all(promises)
     .then(() => {
-    console.log(data);
         update();
     })
     .catch((err) => {
@@ -85,8 +84,6 @@ let update = () => {
 };
 
 let showEntry = (currentData) => {
-    console.log('showEntry', currentData);
-
 
     // show something
     let template = `
