@@ -8,6 +8,7 @@ module.exports = {
         tagesschau: './assets/src/js/tagesschau.js',
         weather: './assets/src/js/weather.js',
         maus: './assets/src/js/maus.js',
+        stocks: './assets/src/js/stocks.js',
         transit: './assets/src/js/transit.js',
         countdown: './assets/src/js/countdown.js',
     },

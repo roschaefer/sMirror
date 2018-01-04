@@ -1,0 +1,13 @@
+.c-progress-bar {
+    --progress: 0;
+    position: relative;
+    height: 1px;
+}
+
+.c-progress-bar::after {
+    content: '';
+    position: absolute;
+    width: var(--progress);
+    height: 100%;
+    background-color: #fff;
+}
