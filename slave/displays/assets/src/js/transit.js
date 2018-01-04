@@ -77,7 +77,7 @@ let url = `${base}?origin=${origin}&destination=${destination}&mode=transit&alte
             document.querySelectorAll('[data-relative-date]').forEach((element) => {
                 element.innerHTML = moment(element.dataset.relativeDate).lang('de').fromNow();
             });
-            return updateTime();
+            return updateTime;
         }(), 1000);
 
     });

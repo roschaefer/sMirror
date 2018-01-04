@@ -4,59 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8816014cf0ab015cb7cb4c16d61fb470",
-    "content-hash": "4684c96d947ad18e2705f8a65ad30a63",
+    "content-hash": "be5fde894f6b99633cdce4cedda8f225",
     "packages": [
-        {
-            "name": "j7mbo/twitter-api-php",
-            "version": "1.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/J7mbo/twitter-api-php.git",
-                "reference": "443d22c53d621b3cc6b7e0c56daa60c5ada033f7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/J7mbo/twitter-api-php/zipball/443d22c53d621b3cc6b7e0c56daa60c5ada033f7",
-                "reference": "443d22c53d621b3cc6b7e0c56daa60c5ada033f7",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.5,>=4.5.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "TwitterAPIExchange.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GNU Public License"
-            ],
-            "authors": [
-                {
-                    "name": "James Mallison",
-                    "homepage": "https://github.com/j7mbo/twitter-api-php"
-                }
-            ],
-            "description": "Simple PHP Wrapper for Twitter API v1.1 calls",
-            "homepage": "https://github.com/j7mbo/twitter-api-php",
-            "keywords": [
-                "api",
-                "php",
-                "twitter"
-            ],
-            "time": "2017-05-08 12:10:56"
-        },
         {
             "name": "tracy/tracy",
             "version": "v2.4.10",
@@ -122,7 +71,7 @@
                 "nette",
                 "profiler"
             ],
-            "time": "2017-10-04 18:43:42"
+            "time": "2017-10-04T18:43:42+00:00"
         }
     ],
     "packages-dev": [],

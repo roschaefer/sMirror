@@ -1,0 +1,44 @@
+.c-sprueche-display {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: ;
+}
+
+.c-sprueche-display__logo {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    width: 30px;
+    height: 30px;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDE2IDE2Ij48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLCAwKSI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTMuMDIzNjIsNC41NjA2M2MtMS4xODUwOCwxLjQ4MTM0LTEuMzU2MDcsMi45NzQzLTEuMDA3ODcsNC4wMTg5QzMuMzMxNjQsNy41MzQ1Niw1LjE2MDQyLDcuNzUzMzcsNi4yNzQwMiw4Ljc5MzdjMS4xMjQ5MSwxLjA1MDkxLDEuMjIxNywyLjg5ODIyLDAuNTAzOTQsNC4wOTQ0OWMtMC42MDM3OSwxLjAwNjMyLTEuNjY0MTIsMS42MTI2LTIuODQ3MjQsMS42MTI2QzEuMjM4MTcsMTQuNTAwNzksMCwxMi4xMjYwMSwwLDkuNDYxNDJDMCw3LjczMTIzLDAuNDQwOTQsNi4xODE2MywxLjMyMjgzLDQuODEyNnMyLjIxMzEyLTIuNDczNDksMy45OTM3LTMuMzEzMzlMNS43OTUyOCwyLjQzMTVDNC43MjAyMSwyLjg4NTA0LDMuNzk2MzMsMy41OTQ3NSwzLjAyMzYyLDQuNTYwNjN6IE0xMS43OTIxMyw0LjU2MDYzYy0xLjE4NTA3LDEuNDgxMzQtMS4zNTYwNywyLjk3NDMtMS4wMDc4Nyw0LjAxODljMC41ODc5My0wLjQ1MzU0LDEuMjI2MjUtMC42ODAzMiwxLjkxNDk2LTAuNjgwMzJDMTQuNTEwODYsNy44OTkyMSwxNiw5LjEwNTc5LDE2LDExLjJjMCwxLjkyNTcyLTEuNDc3ODUsMy4zMDA3OS0zLjMwMDc5LDMuMzAwNzljLTIuNjkyNTQsMC0zLjkzMDcxLTIuMzc0NzgtMy45MzA3MS01LjAzOTM3YzAtMS43MzAxOCwwLjQ0MDk0LTMuMjc5NzksMS4zMjI4My00LjY0ODgyYzAuODgxODktMS4zNjkwMywyLjIxMzEyLTIuNDczNDksMy45OTM3LTMuMzEzMzlsMC40Nzg3NCwwLjkzMjI4QzEzLjQ4ODcxLDIuODg1MDQsMTIuNTY0ODMsMy41OTQ3NSwxMS43OTIxMyw0LjU2MDYzeiI+PC9wYXRoPjwvZz48L3N2Zz4=);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.c-sprueche-display__count {
+    position: absolute;
+    top: 1.75rem;
+    left: 1.75rem;
+    text-transform: uppercase;
+    font-size: .9em;
+    letter-spacing: .1em;
+}
+
+.c-sprueche-display__content {
+    align-self: center;
+}
+
+.c-sprueche-display__subtitle {
+    margin: 2rem 0;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.c-sprueche-display__sprueche {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-style: italic;
+}

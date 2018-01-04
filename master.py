@@ -2,6 +2,13 @@
 import time
 import serial
 import paho.mqtt.publish as publish
+from datetime import datetime, timedelta
+
+last_publication = datetime.now()
+def publish(url):
+    if (datetime.now() - last_publication > timedelta(seconds=5)):
+        publish.single("slave", url, hostname="sMirrorMaster", port=9001, transport="websockets")
+        last_publication = datetime.now()
 
 ser=serial.Serial(
     port='/dev/serial0',
@@ -11,20 +18,15 @@ ser=serial.Serial(
     bytesize=serial.EIGHTBITS,
     timeout=1
 )
-counter=0
 
-delay = 0
 while(True):
     x=ser.readline()
     if x:
-        print "Turn on LED"
-        publish.single("slave", "http://localhost:8000/displays/weather/", hostname="sMirrorMaster", port=9001, transport="websockets")
-        delay = 0
+        print "Reading: %s" % x
+        publish("http://localhost:8000/displays/weather/")
     else:
-        delay = delay + 1
-    if (delay > 5):
-        print "Turn off LED"
-        publish.single("slave", "http://localhost:8000/displays/transit/", hostname="sMirrorMaster", port=9001, transport="websockets")
+        print "No reading"
+        publish("http://localhost:8000/displays/transit/")
 
 
 
