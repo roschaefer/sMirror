@@ -5,11 +5,6 @@
  * Date: 02.01.2018
  * Time: 20:32
  */
-require __DIR__ . '/vendor/autoload.php';
-
-/*use Tracy\Debugger;
-
-Debugger::enable();*/
 
 $config = parse_ini_file('config.ini');
 if (!$config || !isset($config['kategorie'])) {
