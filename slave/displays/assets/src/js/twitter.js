@@ -1,6 +1,8 @@
 import ProgressBar from './lib/progress-bar.js';
 import moment from 'moment';
 
+let duration = 8000;
+
 window.onload = () => {
     fetch('api.php').then((response) => {
         return response.json();
@@ -30,7 +32,7 @@ window.onload = () => {
                     </div>`;
 
             document.querySelector('.c-viewport').innerHTML = template;
-            new ProgressBar(document.querySelector('.c-progress-bar'), 20000);
+            new ProgressBar(document.querySelector('.c-progress-bar'), duration);
 
             if(i === tweets.length - 1) {
                 i = 0;
@@ -39,6 +41,6 @@ window.onload = () => {
             }
 
             return render;
-        }(), 20000);
+        }(), duration);
     });
 };

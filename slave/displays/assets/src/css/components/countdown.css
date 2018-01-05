@@ -8,3 +8,7 @@
     font-weight: 300;
     margin-left: -.05em;
 }
+
+.c-countdown--critical .c-countdown__timer {
+    color: #ff3408;
+}

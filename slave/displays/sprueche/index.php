@@ -14,13 +14,12 @@ require_once('api.php');
         <div class="c-viewport">
             <div class="c-sprueche-display">
                 <div class="c-sprueche-display__logo"></div>
-                <p class="c-sprueche-display__count">Sprüche</p>
                 <div class="c-sprueche-display__content">
                     <p class="c-sprueche-display__sprueche">
-                        <?= $spruch[2]; ?>
+                        <?= preg_replace('/\s(\S*)$/', '&nbsp;$1', $spruch[2]) ?>
                     </p>
                     <p class="c-sprueche-display__subtitle">
-                        - <?= $spruch[1]; ?>
+                        — <?= $spruch[1] ?>
                     </p>
                 </div>
             </div>

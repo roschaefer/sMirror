@@ -6,11 +6,8 @@
  * Time: 20:32
  */
 
-$config = parse_ini_file('config.ini');
-if (!$config || !isset($config['kategorie'])) {
-    throw new \Exception('Datei config.ini nicht vorhanden, oder keine Kategorie eingetragen');
-}
-$kategorie = $config['kategorie'];
+$kategorie = $_GET['kategorie'];
+if(empty($kategorie)) $kategorie = 'CooleFrauen';
 
 $file = fopen(__DIR__ . '/smirror-sprueche.csv', 'r');
 
