@@ -20,24 +20,28 @@ ser=serial.Serial(
         timeout=1
         )
 
-mapping = {
-        5: "http://smirrormaster.local/displays/calendar/",
-        25: "http://smirrormaster.local/displays/weather/",
-        49: "http://smirrormaster.local/displays/news/",
-        53: "http://smirrormaster.local/displays/tagesschau100sek/",
-        77: "http://smirrormaster.local/displays/twitter/",
-        99: "http://smirrormaster.local/displays/transit/",
-        101: "http://smirrormaster.local/displays/stocks/",
-        96: "http://smirrormaster.local/displays/sprueche/",
-        98: "http://smirrormaster.local/displays/maus/",
-        }
+actions = [
+    [5,  "sMirrorMaster",   "http://smirrormaster.local/displays/calendar/"],
+    [5,  "sMirrorSlave005", "http://smirrormaster.local/displays/calendar/"],
+    [25, "sMirrorMaster",   "http://smirrormaster.local/displays/weather/"],
+    [49, "sMirrorMaster",   "http://smirrormaster.local/displays/news/"],
+    [53, "sMirrorMaster",   "http://smirrormaster.local/displays/tagesschau100sek/"],
+    [77, "sMirrorMaster",   "http://smirrormaster.local/displays/twitter/"],
+    [99, "sMirrorMaster",   "http://smirrormaster.local/displays/transit/"],
+    [101,"sMirrorMaster",   "http://smirrormaster.local/displays/stocks/"],
+    [96, "sMirrorMaster",   "http://smirrormaster.local/displays/sprueche/"],
+    [98, "sMirrorMaster",   "http://smirrormaster.local/displays/maus/"],
+]
 
 
 while(True):
     reading=ser.readline()
     print "Reading: %s" % reading
     if reading:
-        tagId = int(reading)
-        payload  = mapping.get(tagId, None)
-        if payload:
-            publish_payload(payload) 
+        try:
+            currentTag = int(reading)
+            for tag, box, payload in actions:
+            if (currentTag == tag):
+                publish_payload(box, payload)
+        except ValueError:
+            pass
