@@ -4,12 +4,12 @@ import serial
 import paho.mqtt.publish as publish
 
 last_payload = None
-def publish_payload(payload):
+def publish_payload(box, payload):
     global last_payload
     if(last_payload != payload):
         last_payload = payload
-        publish.single("slave", last_payload, hostname="sMirrorMaster", port=9001, transport="websockets")
-        print "published %s" % last_payload
+        publish.single(box, last_payload, hostname="sMirrorMaster", port=9001, transport="websockets")
+        print "Published %s" % last_payload
 
 ser=serial.Serial(
         port='/dev/serial0',
@@ -41,7 +41,7 @@ while(True):
         try:
             currentTag = int(reading)
             for tag, box, payload in actions:
-            if (currentTag == tag):
-                publish_payload(box, payload)
+                if (currentTag == tag):
+                    publish_payload(box, payload)
         except ValueError:
             pass
