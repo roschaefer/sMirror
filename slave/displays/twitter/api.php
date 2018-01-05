@@ -14,7 +14,7 @@ Debugger::enable();*/
 $credentials = parse_ini_file('credentials.ini');
 
 $url = 'https://api.twitter.com/1.1/statuses/home_timeline.json';
-$getfield = '?count=5';
+$getfield = '?count=10';
 $requestMethod = 'GET';
 
 $twitter = new TwitterAPIExchange(array(
@@ -34,6 +34,7 @@ $response = json_decode($response);
 $tweets = [];
 
 foreach ($response as $tweet) {
+    die(print_r($tweet));
     $tweets[] = [
         'text' => $tweet->text,
         'created_at' => strtotime($tweet->created_at),
