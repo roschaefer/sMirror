@@ -1,0 +1,8 @@
+[Unit]
+Description=sMirror Proxy Service to Bypass Same-Origin-Policy
+
+[Service]
+ExecStart=/home/pi/sMirror/proxy.js
+
+[Install]
+WantedBy=multi-user.target
