@@ -17,8 +17,13 @@
 }
 
 .c-countdown-display__title {
+    max-width: 75%;
     font-size: 1.5em;
     font-weight: 300;
+}
+
+.c-countdown-display__event-title {
+    white-space: nowrap;
 }
 
 .c-countdown-display__countdown {

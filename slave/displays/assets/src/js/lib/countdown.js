@@ -33,8 +33,22 @@ module.exports = (function() {
         self.$element.appendChild($timer);
 
         window.setInterval(function updateTime() {
-            let timeLeft = self.end - Date.now();
-            $timer.innerHTML = moment.utc(timeLeft).format('HH:mm:ss');
+            let timeLeft = 0;
+            let sign = '';
+
+            if(self.end - Date.now() >= 0) {
+                timeLeft = self.end - Date.now();
+                sign = '';
+            } else {
+                timeLeft = Date.now() - self.end;
+                sign = '-';
+            }
+
+            if(timeLeft <= 3 * 60 * 1000 || sign === '-') self.$element.classList.add('c-countdown--critical');
+
+            if(timeLeft >= 0) {
+                $timer.innerHTML = sign + moment.utc(timeLeft).format('HH:mm:ss');
+            }
 
             return updateTime;
         }(), 1000);
