@@ -38,7 +38,7 @@ module.exports = {
         'Tutorial_Inspiration_3_Try something new for 30 days_800x480.mp4',
         'Tutorial_Inspiration_4_Privilege_800x480.mp4',
         'Tutorial_Inspiration_5_This is it_800x480.mp4',
-        'Tutorial_Inspiration_6_WhenDidYouChoose_800x480.mp4a',
+        'Tutorial_Inspiration_6_WhenDidYouChoose_800x480.mp4',
     ],
 };
 

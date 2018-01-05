@@ -1,12 +1,8 @@
 require('../../../node_modules/rss-parser/dist/rss-parser.js');
+import selectByDay from './lib/selectByDay.js';
 
 // max number of entries used from the feed
 const MAX_ENTRIES = 5;
-
-let entryOfTheDay = (entries) => {
-  let d = new Date().getDay();
-  return entries[d % MAX_ENTRIES];
-};
 
 window.onload = () => {
     // real feed url - uncomment line below
@@ -25,9 +21,9 @@ window.onload = () => {
                 return itm.title.indexOf('Gebärdensprache') === -1;
             });
 
-            let template = `
-                <video autoplay="autoplay" controls="controls" width="800" height="480" src="${entryOfTheDay(filtered).enclosure.url}"></video>
-            `;
+            let url = selectByDay(filtered).enclosure.url
+
+            let template = `<video autoplay width="800" height="480" src="${url}"></video>`;
 
             document.querySelector('.c-viewport').innerHTML = template;
         }

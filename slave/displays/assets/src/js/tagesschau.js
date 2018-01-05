@@ -11,7 +11,7 @@ window.onload = () => {
             console.error(err);
         } else {
             let template = `
-                <video autoplay="autoplay" controls="controls" width="800" height="480" src="${parsed.feed.entries[0].enclosure.url}"></video>
+                <video autoplay="autoplay" width="800" height="480" src="${parsed.feed.entries[0].enclosure.url}"></video>
             `;
 
             document.querySelector('.c-viewport').innerHTML = template;
