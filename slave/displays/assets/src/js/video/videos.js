@@ -1,4 +1,5 @@
 module.exports = {
+    aktivierung: 'aktivierung.mp4',
     begruessungErwachsene: [
         'Begruessung_Erwachsene_1_Music_GoodMorning_KanyeWest.mp4',
         'Begruessung_Erwachsene_2_GoodMorning_Sunshine.mp4',
