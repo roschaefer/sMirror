@@ -21,15 +21,15 @@ ser=serial.Serial(
         )
 
 mapping = {
-        5: "http://localhost/displays/calendar/",
-        25: "http://localhost/displays/weather/",
-        49: "http://localhost/displays/news/",
-        53: "http://localhost/displays/tagesschau100sek/",
-        77: "http://localhost/displays/twitter/",
-        99: "http://localhost/displays/transit/",
-        101: "http://localhost/displays/stocks/",
-        96: "http://localhost/displays/sprueche/",
-        98: "http://localhost/displays/maus/",
+        5: "http://smirrormaster.local/displays/calendar/",
+        25: "http://smirrormaster.local/displays/weather/",
+        49: "http://smirrormaster.local/displays/news/",
+        53: "http://smirrormaster.local/displays/tagesschau100sek/",
+        77: "http://smirrormaster.local/displays/twitter/",
+        99: "http://smirrormaster.local/displays/transit/",
+        101: "http://smirrormaster.local/displays/stocks/",
+        96: "http://smirrormaster.local/displays/sprueche/",
+        98: "http://smirrormaster.local/displays/maus/",
         }
 
 
