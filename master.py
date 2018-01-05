@@ -1,19 +1,15 @@
-#!/usr/bin/envpython
+#!/usr/bin/env/python
 import time
 import serial
 import paho.mqtt.publish as publish
-from datetime import datetime, timedelta
 
-last_publication = datetime.now()
-last_event = None
-def publish_event(url):
-    global last_publication, last_event
-    if (datetime.now() - last_publication > timedelta(seconds=5)):
-        if (last_event != url):
-            last_event = url
-            publish.single("slave", last_event, hostname="sMirrorMaster", port=9001, transport="websockets")
-            print "published %s" % last_event
-            last_publication = datetime.now()
+last_payload = None
+def publish_payload(payload):
+    global last_payload
+        if (last_payload != payload):
+            last_payload = payload
+            publish.single("slave", last_payload, hostname="sMirrorMaster", port=9001, transport="websockets")
+            print "published %s" % last_payload
 
 ser=serial.Serial(
     port='/dev/serial0',
@@ -24,14 +20,24 @@ ser=serial.Serial(
     timeout=1
 )
 
+mapping = {
+        '5': "http://localhost:8000/displays/calendar/",
+        '25': "http://localhost:8000/displays/weather/",
+        '49': "http://localhost:8000/displays/news/",
+        '53': "http://localhost:8000/displays/tagesschau100sek/",
+        '77': "http://localhost:8000/displays/twitter/",
+        '99': "http://localhost:8000/displays/transit/",
+        '101': "http://localhost:8000/displays/stocks/",
+        '96': "http://localhost:8000/displays/sprueche/",
+        '98': "http://localhost:8000/displays/maus/",
+}
+
+
 while(True):
-    x=ser.readline()
-    if x:
-        print "Reading: %s" % x
-        publish_event("http://localhost:8000/displays/weather/")
-    else:
-        print "No reading"
-        publish_event("http://localhost:8000/displays/transit/")
+    tagId=ser.readline()
+    if tagId:
+        print "Reading: %s" % tagId 
+        publish_payload(mapping[tagId])
 
 
 
