@@ -28,7 +28,7 @@
 //AWS IOT config, change these:
 char wifi_ssid[]       = "Kekshuster2";
 char wifi_password[]   = "";
-char aws_endpoint[]    = "192.168.178.118";
+char aws_endpoint[]    = "smirrormaster.local";
 const char* aws_topic  = "$aws/things/your-device/shadow/update";
 int port = 9001;
 
@@ -175,7 +175,7 @@ void setup() {
     Serial.println ("\nconnected");
 
     //fill AWS parameters    
-    awsWSclient.setPath ("ws://192.168.178.118");
+    awsWSclient.setPath ("ws://smirrormaster.local");
 
 
     awsWSclient.setUseSSL(false);
