@@ -34,7 +34,6 @@ $response = json_decode($response);
 $tweets = [];
 
 foreach ($response as $tweet) {
-    die(print_r($tweet));
     $tweets[] = [
         'text' => $tweet->text,
         'created_at' => strtotime($tweet->created_at),
