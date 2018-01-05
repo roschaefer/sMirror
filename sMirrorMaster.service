@@ -1,0 +1,8 @@
+[Unit]
+Description=sMirror Master Service
+
+[Service]
+ExecStart=/home/pi/sMirror/master.py
+
+[Install]
+WantedBy=multi-user.target

@@ -1,4 +1,4 @@
-#!/usr/bin/env/python
+#!/usr/bin/python
 import time
 import serial
 import paho.mqtt.publish as publish
