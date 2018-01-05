@@ -17,7 +17,7 @@
 <body>
 <script src="https://unpkg.com/mqtt@2.15.0/dist/mqtt.min.js"></script>
 <script>
-  var client = mqtt.connect('ws://192.168.178.118:9001') // you add a ws:// url here
+  var client = mqtt.connect('ws://smirrormaster.local:9001') // you add a ws:// url here
   client.subscribe("slave")
 
   client.on("message", function (topic, payload) {
