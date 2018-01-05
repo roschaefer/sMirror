@@ -20,19 +20,9 @@ ser=serial.Serial(
         timeout=1
         )
 
-actions = [
-    [5,  "sMirrorMaster",   "http://smirrormaster.local/displays/calendar/"],
-    [5,  "sMirrorSlave005", "http://smirrormaster.local/displays/calendar/"],
-    [25, "sMirrorMaster",   "http://smirrormaster.local/displays/weather/"],
-    [49, "sMirrorMaster",   "http://smirrormaster.local/displays/news/"],
-    [53, "sMirrorMaster",   "http://smirrormaster.local/displays/tagesschau100sek/"],
-    [77, "sMirrorMaster",   "http://smirrormaster.local/displays/twitter/"],
-    [99, "sMirrorMaster",   "http://smirrormaster.local/displays/transit/"],
-    [101,"sMirrorMaster",   "http://smirrormaster.local/displays/stocks/"],
-    [96, "sMirrorMaster",   "http://smirrormaster.local/displays/sprueche/"],
-    [98, "sMirrorMaster",   "http://smirrormaster.local/displays/maus/"],
-]
-
+with open('actions.csv', 'rb') as f:
+    reader = csv.reader(f)
+    actions = list(reader)
 
 while(True):
     reading=ser.readline()
@@ -41,7 +31,9 @@ while(True):
         try:
             currentTag = int(reading)
             for tag, box, payload in actions:
-                if (currentTag == tag):
+                if(currentTag == tag):
                     publish_payload(box, payload)
         except ValueError:
             pass
+
+
