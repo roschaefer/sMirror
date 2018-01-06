@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import time
 import serial
+import csv
 import paho.mqtt.publish as publish
 
 last_payload = None
@@ -20,9 +21,11 @@ ser=serial.Serial(
         timeout=1
         )
 
+actions = []
 with open('actions.csv', 'rb') as f:
     reader = csv.reader(f)
-    actions = list(reader)
+    for tag, box, payload in list(reader):
+        actions.append([int(tag), str.strip(box), str.strip(payload)])
 
 while(True):
     reading=ser.readline()
