@@ -30,6 +30,8 @@ module.exports = {
         'Tutorial_Gesundheit_3_Lachyoga.mp4',
         'Tutorial_Gesundheit_4_Gesichtsmassage.mp4',
         'Tutorial_Gesundheit_5_Schultern Nacken entspannen.mp4',
+    ],
+    tutorialGovinda: [
         'Tutorial_Gesundheit_1_GOVINDAS LAECHELN.mp4',
     ],
     tutorialInspiration: [
