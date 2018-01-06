@@ -1,4 +1,4 @@
 module.exports = [
-    'Guten Morgen, ${name}',
+    'Guten Morgen, ${name}!',
     'Morgenstund hat Gold im Mund, ${name}!',
 ];
