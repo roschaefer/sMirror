@@ -51,6 +51,7 @@ SimpleDHT22 dht22;
 
 int wait = 50;
 int wait2 = 20;
+int bl_aus = 60000;
 
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
 
@@ -124,10 +125,22 @@ void messageArrived(MQTT::MessageData& md)
    strip.show();
    delay(wait);
    }
+      delay(bl_aus);
+      for(int q = 0;q < 24; q++){
+   strip.setPixelColor(q, 0, 0, 0, 0);
+   strip.show();
+   delay(wait);
+   }
   }
   else if (strcmp(msg, "2")  == 0){
     for(int q = 0;q < 24; q++){
    strip.setPixelColor(q, 0, 255, 0, 0);
+   strip.show();
+   delay(wait);
+   }
+      delay(bl_aus);
+      for(int q = 0;q < 24; q++){
+   strip.setPixelColor(q, 0, 0, 0, 0);
    strip.show();
    delay(wait);
    }
@@ -138,10 +151,22 @@ void messageArrived(MQTT::MessageData& md)
    strip.show();
    delay(wait);
    }
+      delay(bl_aus);
+      for(int q = 0;q < 24; q++){
+   strip.setPixelColor(q, 0, 0, 0, 0);
+   strip.show();
+   delay(wait);
+   }
   }
   else if (strcmp(msg, "4")  == 0){
     for(int q = 0;q < 24; q++){
    strip.setPixelColor(q, 0, 0, 0, 255);
+   strip.show();
+   delay(wait);
+   }
+      delay(bl_aus);
+      for(int q = 0;q < 24; q++){
+   strip.setPixelColor(q, 0, 0, 0, 0);
    strip.show();
    delay(wait);
    }
@@ -152,7 +177,14 @@ void messageArrived(MQTT::MessageData& md)
    strip.show();
    delay(wait);
    }
+      delay(bl_aus);
+      for(int q = 0;q < 24; q++){
+   strip.setPixelColor(q, 0, 0, 0, 0);
+   strip.show();
+   delay(wait);
+   }
   }
+  
   else if (strcmp(msg, "30")  == 0){
    for(int i = 0; i < 100; i++){ 
     for(int q = 0;q < 49; q++){
@@ -165,6 +197,12 @@ void messageArrived(MQTT::MessageData& md)
    }
    strip.show();
    delay(wait2);
+   }
+      delay(bl_aus);
+      for(int q = 0;q < 24; q++){
+   strip.setPixelColor(q, 0, 0, 0, 0);
+   strip.show();
+   delay(wait);
    }
   }
    
@@ -203,10 +241,19 @@ void messageArrived1(MQTT::MessageData& md)
    strip.show();
    delay(wait);
    }
+      delay(bl_aus);
+      
   }
   else if (strcmp(msg, "1")  == 0){
     for(int q = 24;q < 49; q++){
    strip.setPixelColor(q, 255, 0, 0, 0);
+   strip.show();
+   delay(wait);
+   }
+      delay(bl_aus);
+
+     for(int q = 24;q < 49; q++){
+   strip.setPixelColor(q, 0, 0, 0, 0);
    strip.show();
    delay(wait);
    }
@@ -217,10 +264,22 @@ void messageArrived1(MQTT::MessageData& md)
    strip.show();
    delay(wait);
    }
+      delay(bl_aus);
+      for(int q = 24;q < 49; q++){
+   strip.setPixelColor(q, 0, 0, 0, 0);
+   strip.show();
+   delay(wait);
+   }
   }
   else if (strcmp(msg, "3")  == 0){
     for(int q = 24;q < 49; q++){
    strip.setPixelColor(q, 0, 0, 255, 0);
+   strip.show();
+   delay(wait);
+   }
+      delay(bl_aus);
+      for(int q = 24;q < 49; q++){
+   strip.setPixelColor(q, 0, 0, 0, 0);
    strip.show();
    delay(wait);
    }
@@ -231,10 +290,22 @@ void messageArrived1(MQTT::MessageData& md)
    strip.show();
    delay(wait);
    }
+      delay(bl_aus);
+      for(int q = 24;q < 49; q++){
+   strip.setPixelColor(q, 0, 0, 0, 0);
+   strip.show();
+   delay(wait);
+   }
   }
   else if (strcmp(msg, "5")  == 0){
     for(int q = 24;q < 49; q++){
    strip.setPixelColor(q, 252, 50, 0, 0);
+   strip.show();
+   delay(wait);
+   }
+      delay(bl_aus);
+      for(int q = 24;q < 49; q++){
+   strip.setPixelColor(q, 0, 0, 0, 0);
    strip.show();
    delay(wait);
    }
@@ -251,6 +322,12 @@ void messageArrived1(MQTT::MessageData& md)
    }
    strip.show();
    delay(wait2);
+   }
+      delay(bl_aus);
+      for(int q = 24;q < 49; q++){
+   strip.setPixelColor(q, 0, 0, 0, 0);
+   strip.show();
+   delay(wait);
    }
   }
  
