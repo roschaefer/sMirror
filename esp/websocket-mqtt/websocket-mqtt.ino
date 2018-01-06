@@ -58,7 +58,8 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ800
 char wifi_ssid[]       = "Kekshuster2";
 char wifi_password[]   = "83132007014314226963";
 char aws_endpoint[]    = "smirrormaster.local";
-const char* aws_topic  = "ledStatus";
+const char* topic_box10  = "sMirrorSlave010";
+const char* topic_box11  = "sMirrorSlave011";
 const char* dusch_topic = "sMirrorMaster";
 int port = 9001;
 
@@ -67,7 +68,7 @@ int port = 9001;
 //MQTT config
 const int maxMQTTpackageSize = 512;
 const int maxMQTTMessageHandlers = 1;
-
+  
 ESP8266WiFiMulti WiFiMulti;
 
 AWSWebSocketClient awsWSclient(1000);
@@ -108,6 +109,7 @@ void messageArrived(MQTT::MessageData& md)
   char* msg = new char[message.payloadlen+1]();
   memcpy (msg,message.payload,message.payloadlen);
   Serial.println(msg);
+  
   if (strcmp(msg, "0")  == 0){
     digitalWrite(2, HIGH);
    for(int q = 0;q < 24; q++){
@@ -145,48 +147,6 @@ void messageArrived(MQTT::MessageData& md)
    }
   }
   else if (strcmp(msg, "5")  == 0){
-    for(int q = 24;q < 49; q++){
-   strip.setPixelColor(q, 255, 0, 0, 0);
-   strip.show();
-   delay(wait);
-   }
-  }
-  else if (strcmp(msg, "6")  == 0){
-    for(int q = 24;q < 49; q++){
-   strip.setPixelColor(q, 0, 255, 0, 0);
-   strip.show();
-   delay(wait);
-   }
-  }
-  else if (strcmp(msg, "7")  == 0){
-    for(int q = 24;q < 49; q++){
-   strip.setPixelColor(q, 0, 0, 255, 0);
-   strip.show();
-   delay(wait);
-   }
-  }
-  else if (strcmp(msg, "8")  == 0){
-    for(int q = 24;q < 49; q++){
-   strip.setPixelColor(q, 0, 0, 0, 255);
-   strip.show();
-   delay(wait);
-   }
-  }
-  else if (strcmp(msg, "9")  == 0){
-    for(int q = 24;q < 49; q++){
-   strip.setPixelColor(q, 0, 0, 0, 0);
-   strip.show();
-   delay(wait);
-   }
-  }
-  else if (strcmp(msg, "10")  == 0){
-    for(int q = 24;q < 49; q++){
-   strip.setPixelColor(q, 252, 50, 0, 0);
-   strip.show();
-   delay(wait);
-   }
-  }
-  else if (strcmp(msg, "11")  == 0){
     for(int q = 0;q < 24; q++){
    strip.setPixelColor(q, 252, 50, 0, 0);
    strip.show();
@@ -212,6 +172,94 @@ void messageArrived(MQTT::MessageData& md)
   Serial.println("huhu");
   delete msg;
 }
+
+//count messages arrived
+int arrivedcount1 = 0;
+
+//callback to handle mqtt messages
+void messageArrived1(MQTT::MessageData& md)
+{
+  MQTT::Message &message = md.message;
+
+  Serial.print("Message ");
+  Serial.print(++arrivedcount1);
+  Serial.print(" arrived: qos ");
+  Serial.print(message.qos);
+  Serial.print(", retained ");
+  Serial.print(message.retained);
+  Serial.print(", dup ");
+  Serial.print(message.dup);
+  Serial.print(", packetid ");
+  Serial.println(message.id);
+  Serial.print("Payload ");
+  char* msg = new char[message.payloadlen+1]();
+  memcpy (msg,message.payload,message.payloadlen);
+  Serial.println(msg);
+
+    if (strcmp(msg, "0")  == 0){
+    digitalWrite(2, HIGH);
+   for(int q = 24;q < 49; q++){
+   strip.setPixelColor(q, 0, 0, 0, 0);
+   strip.show();
+   delay(wait);
+   }
+  }
+  else if (strcmp(msg, "1")  == 0){
+    for(int q = 24;q < 49; q++){
+   strip.setPixelColor(q, 255, 0, 0, 0);
+   strip.show();
+   delay(wait);
+   }
+  }
+  else if (strcmp(msg, "2")  == 0){
+    for(int q = 24;q < 49; q++){
+   strip.setPixelColor(q, 0, 255, 0, 0);
+   strip.show();
+   delay(wait);
+   }
+  }
+  else if (strcmp(msg, "3")  == 0){
+    for(int q = 24;q < 49; q++){
+   strip.setPixelColor(q, 0, 0, 255, 0);
+   strip.show();
+   delay(wait);
+   }
+  }
+  else if (strcmp(msg, "4")  == 0){
+    for(int q = 24;q < 49; q++){
+   strip.setPixelColor(q, 0, 0, 0, 255);
+   strip.show();
+   delay(wait);
+   }
+  }
+  else if (strcmp(msg, "5")  == 0){
+    for(int q = 24;q < 49; q++){
+   strip.setPixelColor(q, 252, 50, 0, 0);
+   strip.show();
+   delay(wait);
+   }
+  }
+  else if (strcmp(msg, "30")  == 0){
+   for(int i = 0; i < 100; i++){ 
+    for(int q = 0;q < 49; q++){
+   strip.setPixelColor(q, 255, 255, 255, 255);
+   }
+   strip.show();
+   delay(wait2);
+   for(int q = 0;q < 49; q++){
+   strip.setPixelColor(q, 0, 0, 0, 0);
+   }
+   strip.show();
+   delay(wait2);
+   }
+  }
+ 
+  
+  Serial.println("huhu1");
+  delete msg;
+
+}
+
 
 //connects to websocket layer and mqtt layer
 bool connect () {
@@ -270,14 +318,23 @@ bool connect () {
 //subscribe to a mqtt topic
 void subscribe () {
    //subscript to a topic
-    int rc = client->subscribe(aws_topic, MQTT::QOS0, messageArrived);
+    int rc = client->subscribe(topic_box10, MQTT::QOS0, messageArrived);
     if (rc != 0) {
       Serial.print("rc from MQTT subscribe is ");
       Serial.println(rc);
       return;
     }
     Serial.println("MQTT subscribed");
+
+    int rc1 = client->subscribe(topic_box11, MQTT::QOS0, messageArrived1);
+    if (rc1 != 0) {
+      Serial.print("rc from MQTT subscribe is ");
+      Serial.println(rc1);
+      return;
+    }
+    Serial.println("MQTT subscribed1");
 }
+
 
 //send a message to a mqtt topic
 void sendmessage() {
