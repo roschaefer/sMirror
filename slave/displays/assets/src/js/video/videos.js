@@ -42,6 +42,13 @@ module.exports = {
         'Tutorial_Inspiration_5_This is it_800x480.mp4',
         'Tutorial_Inspiration_6_WhenDidYouChoose_800x480.mp4',
     ],
+    GoodMorningKinder: [
+        'Inhalte Kinder_GoodMorningSong.mp4'
+        ],
+    
+    lieblingsmusik: [
+        'Begruessung_Erwachsene_1_Music_GoodMorning_KanyeWest.mp4',
+        ],
 };
 
 
