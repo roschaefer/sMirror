@@ -3,6 +3,14 @@ import time
 import serial
 import csv
 import paho.mqtt.publish as publish
+import httplib2
+import os
+import datetime
+import re
+from apiclient import discovery
+from oauth2client import client
+from oauth2client import tools
+from oauth2client.file import Storage
 
 def get_credentials():
     """Gets valid user credentials from storage.
@@ -30,14 +38,14 @@ def get_calendar_events(searchedReminder):
 
     last_midnight = datetime.datetime.combine(datetime.date.today(), datetime.time.min)
     last_midnight = last_midnight.isoformat() + 'Z'
-    print('Getting the upcoming 10 events')
+    print 'Getting the upcoming 250 events'
     eventsResult = service.events().list(
         calendarId='primary', timeMin=last_midnight, singleEvents=True,
         orderBy='startTime').execute()
     events = eventsResult.get('items', [])
 
     for event in events:
-        summary = str.strip(event['summary'])
+        summary = str.strip(str(event['summary']))
         summary = re.sub('\s+', ' ', summary)
         try:
             reminder = re.search('REMINDER: (\S+)', summary, flags=re.IGNORECASE).group(1)
@@ -67,8 +75,8 @@ ser=serial.Serial(
 actions = []
 with open('actions.csv', 'rb') as f:
     reader = csv.reader(f)
-    for tag, box, payload in list(reader):
-        actions.append([int(tag), str.strip(box), str.strip(payload)])
+    for tag, box, payload, reminder in list(reader):
+        actions.append([int(tag), str.strip(box), str.strip(payload), str.strip(reminder)])
 
 while(True):
     reading=ser.readline()
@@ -78,8 +86,9 @@ while(True):
             currentTag = int(reading)
             for tag, box, payload, searchedReminder in actions:
                 if(currentTag == tag):
-                    if (searchedReminder and get_calendar_events(searchedReminder)):
-                        publish_payload(box, payload)
+                    if(searchedReminder):
+                        if(get_calendar_events(searchedReminder)):
+                            publish_payload(box, payload)
                     else:
                         publish_payload(box, payload)
         except ValueError:
