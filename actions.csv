@@ -1,7 +1,7 @@
 0, sMirrorSlave010,3,ElmexGelee
 0, sMirrorMaster, http://smirrormaster.local/displays/video/?kategorie=begruessungErwachsene,
 1, sMirrorMaster, http://smirrormaster.local/displays/sprueche/?kategorie=Musk,
-2, sMirrorMaster, http://smirrormaster.local/displays/video,
+2, sMirrorMaster, http://smirrormaster.local/displays/video/?kategorie=tutorialGovinda,
 3, sMirrorMaster, http://smirrormaster.local/displays/sprueche/?kategorie=Till,
 5, sMirrorMaster, http://smirrormaster.local/displays/calendar/,
 6, sMirrorMaster, http://smirrormaster.local/displays/sprueche/?kategorie=Wilde,
