@@ -4,6 +4,49 @@ import serial
 import csv
 import paho.mqtt.publish as publish
 
+def get_credentials():
+    """Gets valid user credentials from storage.
+
+    Returns:
+        Credentials, the obtained credential.
+    """
+    credential_path = os.path.relpath('calendar-python-quickstart.json')
+
+    store = Storage(credential_path)
+    credentials = store.get()
+    if not credentials or credentials.invalid:
+        raise "Stored credentials missing or invalid"
+    return credentials
+
+def get_calendar_events(searchedReminder):
+    """Shows basic usage of the Google Calendar API.
+
+    Creates a Google Calendar API service object and outputs a list of the next
+    10 events on the user's calendar.
+    """
+    credentials = get_credentials()
+    http = credentials.authorize(httplib2.Http())
+    service = discovery.build('calendar', 'v3', http=http)
+
+    last_midnight = datetime.datetime.combine(datetime.date.today(), datetime.time.min)
+    last_midnight = last_midnight.isoformat() + 'Z'
+    print('Getting the upcoming 10 events')
+    eventsResult = service.events().list(
+        calendarId='primary', timeMin=last_midnight, singleEvents=True,
+        orderBy='startTime').execute()
+    events = eventsResult.get('items', [])
+
+    for event in events:
+        summary = str.strip(event['summary'])
+        summary = re.sub('\s+', ' ', summary)
+        try:
+            reminder = re.search('REMINDER: (\S+)', summary, flags=re.IGNORECASE).group(1)
+            if (str.strip(reminder).lower() == str.strip(searchedReminder).lower()):
+                return True
+        except AttributeError:
+            pass # no matches
+    return False
+
 last_payload = None
 def publish_payload(box, payload):
     global last_payload
@@ -33,9 +76,12 @@ while(True):
     if reading:
         try:
             currentTag = int(reading)
-            for tag, box, payload in actions:
+            for tag, box, payload, searchedReminder in actions:
                 if(currentTag == tag):
-                    publish_payload(box, payload)
+                    if (searchedReminder and get_calendar_events(searchedReminder)):
+                        publish_payload(box, payload)
+                    else:
+                        publish_payload(box, payload)
         except ValueError:
             pass
 
