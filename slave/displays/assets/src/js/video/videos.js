@@ -6,6 +6,10 @@ module.exports = {
         'Begruessung_Erwachsene_3_GoodMorning_StevenColbert.mp4',
         'Begruessung_Erwachsene_4_YouTalkingToMe.mp4',
     ],
+    
+    jakobSunshine: [
+            'Begruessung_Erwachsene_2_GoodMorning_Sunshine.mp4',
+    ],
     begruessungKinder: [
         'Begruessung_Kinder_1_MausMachtTag.mp4',
         'Begruessung_Kinder_2_StopmotionLove.mp4',
