@@ -2,6 +2,7 @@
 Description=sMirror Master Service
 
 [Service]
+WorkingDirectory=/home/pi/sMirror/
 ExecStart=/home/pi/sMirror/master.py
 
 [Install]
