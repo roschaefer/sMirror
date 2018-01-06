@@ -7,7 +7,7 @@ module.exports = {
         'Begruessung_Erwachsene_4_YouTalkingToMe.mp4',
     ],
     
-    jakobSunshine: [
+    GifSunshine: [
             'Begruessung_Erwachsene_2_GoodMorning_Sunshine.mp4',
     ],
     begruessungKinder: [
