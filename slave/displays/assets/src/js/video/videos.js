@@ -53,6 +53,10 @@ module.exports = {
     lieblingsmusik: [
         'Begruessung_Erwachsene_1_Music_GoodMorning_KanyeWest.mp4',
         ],
+    
+    smoerriTutorial: [
+        'Reminder Schublade.mp4'
+        ],
 };
 
 
