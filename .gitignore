@@ -115,3 +115,4 @@ node_modules
 .tern-port
 slave/displays/assets/src/js/config/keys.js
 
+*.mp4
