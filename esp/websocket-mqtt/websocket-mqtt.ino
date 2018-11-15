@@ -56,8 +56,8 @@ int bl_aus = 60000;
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
 
 //AWS IOT config, change these:
-char wifi_ssid[]       = "Kekshuster2";
-char wifi_password[]   = "83132007014314226963";
+char wifi_ssid[]       = "sMirrorWifi";
+char wifi_password[]   = "spiegleinSpiegleinAnDerWand";
 char aws_endpoint[]    = "smirrormaster.local";
 const char* topic_box10  = "sMirrorSlave010";
 const char* topic_box11  = "sMirrorSlave011";
