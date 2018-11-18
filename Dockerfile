@@ -10,6 +10,9 @@ WORKDIR $WORKDIR
 # See: https://github.com/nodejs/docker-node/pull/367#issuecomment-430807898
 RUN apk --no-cache add git
 
+RUN npm install http-server -g
+
+
 COPY package.json .
 COPY package-lock.json .
 RUN npm install
@@ -22,5 +25,5 @@ RUN cd slave/displays && npm install
 COPY . .
 RUN cd slave/displays && npm run-script build
 
-CMD node proxy.js
+CMD cd slave/displays && http-server --cors
 

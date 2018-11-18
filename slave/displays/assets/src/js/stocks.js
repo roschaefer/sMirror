@@ -26,7 +26,7 @@ window.onload = () => {
 
 
     SYMBOLS.forEach(s => {
-        let url = 'http://smirrormaster.local:8080/https://www.alphavantage.co/query?function=' + TIMESPAN + '&symbol=' + s.symbol + '&interval=60min&apikey=' + process.env.STOCKS_API_KEY;
+        let url = 'https://www.alphavantage.co/query?function=' + TIMESPAN + '&symbol=' + s.symbol + '&interval=60min&apikey=' + process.env.STOCKS_API_KEY;
 
         promises.push(fetch(url)
             .then(response => response.json())

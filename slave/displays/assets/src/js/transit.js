@@ -4,7 +4,7 @@ const ORIGIN = 'Hinter dem Brunnen 6, Lüneburg';
 const DESTINATION = 'Hongkongstr. 1, Hamburg';
 
 let key = process.env.TRANSIT_API_KEY;
-let base = 'http://smirrormaster.local:8080/https://maps.googleapis.com/maps/api/directions/json';
+let base = 'https://maps.googleapis.com/maps/api/directions/json';
 let url = `${base}?origin=${ORIGIN}&destination=${DESTINATION}&mode=transit&alternatives=true&key=${key}`;
 
     fetch(url, {
