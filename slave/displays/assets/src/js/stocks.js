@@ -1,5 +1,3 @@
-import keys from './config/keys.js';
-
 // needs an api key from alphavantage.co -> https://www.alphavantage.co/support/#api-key
 
 // list of all stocks to be retrieved
@@ -17,7 +15,7 @@ let currentIndex = 0;
 
 let urls = [];
 SYMBOLS.forEach((s) => {
-    urls.push('https://www.alphavantage.co/query?function=' + TIMESPAN + '&symbol=' + s.symbol + '&interval=60min&apikey=' + keys.stocks);
+    urls.push('https://www.alphavantage.co/query?function=' + TIMESPAN + '&symbol=' + s.symbol + '&interval=60min&apikey=' + process.env.STOCKS_API_KEY);
 });
 
 let data = [];
@@ -28,7 +26,7 @@ window.onload = () => {
 
 
     SYMBOLS.forEach(s => {
-        let url = 'http://smirrormaster.local:8080/https://www.alphavantage.co/query?function=' + TIMESPAN + '&symbol=' + s.symbol + '&interval=60min&apikey=' + keys.stocks;
+        let url = 'http://smirrormaster.local:8080/https://www.alphavantage.co/query?function=' + TIMESPAN + '&symbol=' + s.symbol + '&interval=60min&apikey=' + process.env.STOCKS_API_KEY;
 
         promises.push(fetch(url)
             .then(response => response.json())
