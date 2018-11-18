@@ -1,0 +1,5 @@
+{
+  "name": "smirror",
+  "alias": "smirror.now.sh",
+  "type": "docker"
+}
