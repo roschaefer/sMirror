@@ -17,8 +17,8 @@
 <body>
 <script src="https://unpkg.com/mqtt@2.15.0/dist/mqtt.min.js"></script>
 <script>
-  var client = mqtt.connect('ws://localhost:1883') // you add a ws:// url here
-  let urlParams = new URLSearchParams(window.location.search); 
+  var client = mqtt.connect('ws://broker.hivemq.com:8000') // you add a ws:// url here
+  let urlParams = new URLSearchParams(window.location.search);
   let topic = urlParams.get("topic") || "slave";
   console.log(topic);
   client.subscribe(topic)

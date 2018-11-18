@@ -11,8 +11,3 @@ services:
       - TRANSIT_API_KEY=${TRANSIT_API_KEY}
       - WEATHER_API_KEY=${WEATHER_API_KEY}
       - STOCKS_API_KEY=${STOCKS_API_KEY}
-
-  mqtt:
-    image: ncarlier/mqtt
-    ports:
-      - 1883:1883
