@@ -17,7 +17,7 @@
 <body>
 <script src="https://unpkg.com/mqtt@2.15.0/dist/mqtt.min.js"></script>
 <script>
-  var client = mqtt.connect('ws://smirrormaster.local:9001') // you add a ws:// url here
+  var client = mqtt.connect('ws://localhost:1883') // you add a ws:// url here
   let urlParams = new URLSearchParams(window.location.search); 
   let topic = urlParams.get("topic") || "slave";
   console.log(topic);
@@ -25,8 +25,8 @@
 
 
   client.on("message", function (topic, payload) {
-    console.log(`topic: ${topic}`); 
-    console.log(`payload: ${payload}`); 
+    console.log(`topic: ${topic}`);
+    console.log(`payload: ${payload}`);
     document.getElementById("main").setAttribute("src", payload);
   })
 

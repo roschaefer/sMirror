@@ -11,7 +11,8 @@ services:
       - TRANSIT_API_KEY=${TRANSIT_API_KEY}
       - WEATHER_API_KEY=${WEATHER_API_KEY}
       - STOCKS_API_KEY=${STOCKS_API_KEY}
-    volumes:
-      - .:/sMirror
-      - /sMirror/node_modules
-    command: node proxy.js
+
+  mqtt:
+    image: ncarlier/mqtt
+    ports:
+      - 1883:1883

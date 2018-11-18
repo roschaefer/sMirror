@@ -10,6 +10,9 @@ WORKDIR $WORKDIR
 # See: https://github.com/nodejs/docker-node/pull/367#issuecomment-430807898
 RUN apk --no-cache add git
 
+# mosquitto
+RUN apk --no-cache add mosquitto mosquitto-clients
+
 RUN npm install http-server -g
 
 
