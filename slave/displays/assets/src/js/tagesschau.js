@@ -6,7 +6,9 @@ window.onload = () => {
     // local test feed url
     //let url = './local-feed.xml';
 
-    RSSParser.parseURL(url, (err, parsed) => {
+	  //https://github.com/bobby-brennan/rss-parser#web
+	  const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"
+    RSSParser.parseURL(CORS_PROXY + url, (err, parsed) => {
         if (err || parsed === undefined) {
             console.error(err);
         } else {
