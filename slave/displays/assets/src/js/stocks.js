@@ -17,7 +17,7 @@ let currentIndex = 0;
 
 let urls = [];
 SYMBOLS.forEach((s) => {
-    urls.push('https://www.alphavantage.co/query?function=' + TIMESPAN + '&symbol=' + s.symbol + '&interval=60min&apikey=' + keys.stocks);
+    urls.push('http://stocks.smirror.canopus.uberspace.de/?symbol=' + s.symbol + '&apikey=' + keys.stocks);
 });
 
 let data = [];
@@ -27,8 +27,7 @@ let promises = [];
 window.onload = () => {
 
 
-    SYMBOLS.forEach(s => {
-        let url = 'http://smirrormaster.local:8080/https://www.alphavantage.co/query?function=' + TIMESPAN + '&symbol=' + s.symbol + '&interval=60min&apikey=' + keys.stocks;
+    urls.forEach(url => {
 
         promises.push(fetch(url)
             .then(response => response.json())

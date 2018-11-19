@@ -6,7 +6,7 @@ const MAX_ENTRIES = 5;
 
 window.onload = () => {
     // real feed url - uncomment line below
-    let url = 'http://smirrormaster.local:8080/http://www1.wdr.de/mediathek/video/podcast/channel-sendung-mit-der-maus-100.podcast';
+    let url = 'http://maus.smirror.canopus.uberspace.de';
     // local test feed url
     //let url = './local-feed.xml';
 

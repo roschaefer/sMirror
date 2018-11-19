@@ -2,7 +2,7 @@ require('../../../node_modules/rss-parser/dist/rss-parser.js');
 
 window.onload = () => {
     // real feed url - uncomment line below
-    let url = 'http://smirrormaster.local:8080/https://www.tagesschau.de/export/video-podcast/tagesschau-in-100-sekunden/';
+    let url = 'https://tagesschau.smirror.canopus.uberspace.de';
     // local test feed url
     //let url = './local-feed.xml';
 
