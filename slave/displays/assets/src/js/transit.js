@@ -10,7 +10,7 @@ let url = `${base}?origin=${ORIGIN}&destination=${DESTINATION}&mode=transit&alte
 
     fetch(url, {
         method: 'get',
-        mode: 'cors',
+        mode: 'no-cors',
     }).then((response) => {
         return response.json();
     }).then((data) => {
