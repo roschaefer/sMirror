@@ -15,11 +15,6 @@ const TIMESPAN = 'TIME_SERIES_DAILY';
 
 let currentIndex = 0;
 
-let urls = [];
-SYMBOLS.forEach((s) => {
-    urls.push('http://stocks.smirror.canopus.uberspace.de/?symbol=' + s.symbol + '&apikey=' + keys.stocks);
-});
-
 let data = [];
 let promises = [];
 
@@ -27,7 +22,8 @@ let promises = [];
 window.onload = () => {
 
 
-    urls.forEach(url => {
+    SYMBOLS.forEach(s => {
+      let url = 'http://stocks.smirror.canopus.uberspace.de/?symbol=' + s.symbol + '&apikey=' + keys.stocks;
 
         promises.push(fetch(url)
             .then(response => response.json())
