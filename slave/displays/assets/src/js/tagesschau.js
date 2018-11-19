@@ -2,7 +2,7 @@ require('../../../node_modules/rss-parser/dist/rss-parser.js');
 
 window.onload = () => {
     // real feed url - uncomment line below
-    let url = 'https://tagesschau.smirror.canopus.uberspace.de';
+    let url = 'http://tagesschau.smirror.canopus.uberspace.de';
     // local test feed url
     //let url = './local-feed.xml';
 
