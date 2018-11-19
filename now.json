@@ -1,0 +1,10 @@
+{
+  "name": "smirror",
+  "alias": "smirror.now.sh",
+  "type": "docker",
+  "env": {
+    "TRANSIT_API_KEY": "@transit-api-key",
+    "WEATHER_API_KEY": "@weather-api-key",
+    "STOCKS_API_KEY": "@stocks-api-key"
+  }
+}

@@ -3,7 +3,10 @@ import moment from 'moment';
 import ProgressBar from './lib/progress-bar.js';
 
 window.onload = () => {
-    RSSParser.parseURL('http://smirrormaster.local:8080/https://spiegel.de/schlagzeilen/tops/index.rss', (err, parsed) => {
+	  //https://github.com/bobby-brennan/rss-parser#web
+	  const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"
+    const url = 'https://spiegel.de/schlagzeilen/tops/index.rss'
+    RSSParser.parseURL(CORS_PROXY + url, (err, parsed) => {
         let items = parsed.feed.entries.slice(0, 5);
         let i = 0;
 

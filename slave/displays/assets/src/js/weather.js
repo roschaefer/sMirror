@@ -1,4 +1,3 @@
-import keys from './config/keys.js';
 import moment from 'moment';
 import timespans from './weather/timespans.js';
 import icons from './weather/icons.js';
@@ -6,7 +5,7 @@ import icons from './weather/icons.js';
 // api configuration
 let base = 'https://api.openweathermap.org/data/2.5/';
 let location = 'Lüneburg';
-let key = keys.weather;
+let key = process.env.WEATHER_API_KEY;
 
 let current  = `${base}/weather?q=${location}&APPID=${key}`;
 let forecast = `${base}/forecast?q=${location}&APPID=${key}`;
