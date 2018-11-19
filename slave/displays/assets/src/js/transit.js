@@ -5,12 +5,11 @@ const ORIGIN = 'Hinter dem Brunnen 6, Lüneburg';
 const DESTINATION = 'Hongkongstr. 1, Hamburg';
 
 let key = keys.transit;
-let base = 'http://smirrormaster.local:8080/https://maps.googleapis.com/maps/api/directions/json';
+let base = 'http://transit.smirror.canopus.uberspace.de';
 let url = `${base}?origin=${ORIGIN}&destination=${DESTINATION}&mode=transit&alternatives=true&key=${key}`;
 
     fetch(url, {
         method: 'get',
-        mode: 'cors',
     }).then((response) => {
         return response.json();
     }).then((data) => {

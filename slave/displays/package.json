@@ -16,9 +16,9 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "npm-watch": "^0.3.0",
-    "postcss": "^6.0.15",
-    "postcss-cli": "^4.1.1",
-    "postcss-cssnext": "^3.0.2",
+    "postcss": "^7.0.6",
+    "postcss-cli": "^6.0.1",
+    "postcss-cssnext": "^3.1.0",
     "postcss-import": "^11.0.0",
     "webpack": "^3.10.0"
   },
